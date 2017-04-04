@@ -1,0 +1,1573 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla básica de Latex en Español.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% Es una plantilla básica para redactar documentos. Utiliza el paquete fancyhdr para darle un
+% estilo moderno pero serio.
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------------------------
+%	INCLUSIÓN DE PAQUETES BÁSICOS
+%-----------------------------------------------------------------------------------------------------
+\documentclass{article}
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DEL LENGUAJE
+%-----------------------------------------------------------------------------------------------------
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DE LA FUENTE
+%-----------------------------------------------------------------------------------------------------
+% Fuente utilizada.
+\usepackage{courier}                    % Fuente Courier.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+%-----------------------------------------------------------------------------------------------------
+%	ALGORITMOS
+%-----------------------------------------------------------------------------------------------------
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+%-----------------------------------------------------------------------------------------------------
+%	IMÁGENES
+%-----------------------------------------------------------------------------------------------------
+\usepackage{float}
+\usepackage{placeins}
+%-----------------------------------------------------------------------------------------------------
+%	ESTILO DE PÁGINA
+%-----------------------------------------------------------------------------------------------------
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+\usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
+\usepackage{geometry}               % Asigna la "geometría" de las páginas.
+% Se elige el estilo fancy y márgenes de 3 centímetros.
+\pagestyle{fancy}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
+\fancyhf{}
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+% Cabecera del documento. Se ajusta la línea de la cabecera.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+	    \hrule width \hsize
+	\end{minipage}
+}
+% Texto de la cabecera:
+\lhead{\subject}                          % Parte izquierda.
+\chead{}                                    % Centro.
+\rhead{\doctitle \ - \docsubtitle}              % Parte derecha.
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{
+\begin{minipage}{1\textwidth}
+    \hrule width \hsize
+\end{minipage}\par
+}
+\lfoot{}                                                 % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+
+
+%----------------------------------------------------------------------------------------
+%   MATEMÁTICAS
+%----------------------------------------------------------------------------------------
+
+% Paquetes para matemáticas:
+\usepackage{amsmath, amsthm, amssymb, amsfonts, amscd} % Teoremas, fuentes y símbolos.
+\usepackage{tikz-cd} % para diagramas conmutativos
+ % Nuevo estilo para definiciones
+ \newtheoremstyle{definition-style} % Nombre del estilo
+ {5pt}                % Espacio por encima
+ {0pt}                % Espacio por debajo
+ {}                   % Fuente del cuerpo
+ {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+ {\bf}                % Fuente para la cabecera
+ {.}                  % Puntuación tras la cabecera
+ {\newline}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+ {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+ % Nuevo estilo para teoremas
+ \newtheoremstyle{theorem-style} % Nombre del estilo
+ {5pt}                % Espacio por encima
+ {0pt}                % Espacio por debajo
+ {\itshape}           % Fuente del cuerpo
+ {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+ {\bf}                % Fuente para la cabecera
+ {.}                  % Puntuación tras la cabecera
+ {\newline}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+ {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+ % Nuevo estilo para ejemplos y ejercicios
+ \newtheoremstyle{example-style} % Nombre del estilo
+ {5pt}                % Espacio por encima
+ {0pt}                % Espacio por debajo
+ {}                   % Fuente del cuerpo
+ {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+ {\scshape}                % Fuente para la cabecera
+ {:}                  % Puntuación tras la cabecera
+ {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+ {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+ % Teoremas:
+ \theoremstyle{theorem-style}  % Otras posibilidades: plain (por defecto), definition, remark
+ \newtheorem{theorem}{Teorema}[section]  % [section] indica que el contador se reinicia cada sección
+ \newtheorem{corollary}[theorem]{Corolario} % [theorem] indica que comparte el contador con theorem
+ \newtheorem{lemma}[theorem]{Lema}
+ \newtheorem{proposition}[theorem]{Proposición}
+
+ % Definiciones, notas, conjeturas
+ \theoremstyle{definition-style}
+ \newtheorem{definition}{Definición}[section]
+ \newtheorem{conjecture}{Conjetura}[section]
+ \newtheorem*{note}{Nota} % * indica que no tiene contador
+
+ % Ejemplos, ejercicios
+ \theoremstyle{example-style}
+ \newtheorem{example}{Ejemplo}[section]
+ \newtheorem{exercise}{Ejercicio}[section]
+ 
+ \newcommand{\propernormal}{%
+  \mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+
+%-----------------------------------------------------------------------------------------------------
+%	BIBLIOGRAFÍA
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage[backend=bibtex, style=numeric]{biblatex}
+\usepackage{csquotes}
+
+\addbibresource{references.bib}
+
+%-----------------------------------------------------------------------------------------------------
+%	PORTADA
+%-----------------------------------------------------------------------------------------------------
+% Elija uno de los siguientes formatos.
+% No olvide incluir los archivos .sty asociados en el directorio del documento.
+\usepackage{title1}
+%\usepackage{title2}
+%\usepackage{title3}
+
+%-----------------------------------------------------------------------------------------------------
+%	TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO
+%-----------------------------------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\doctitle}{Álgebra II}
+% Subtítulo.
+\newcommand{\docsubtitle}{}
+% Fecha.
+\newcommand{\docdate}{}
+% Asignatura.
+\newcommand{\subject}{}
+% Autor.
+\newcommand{\docauthor}{Rodrigo Raya Castellano}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{rjraya@correo.ugr.es}
+\definecolor{cccolor}{rgb}{.67,.7,.67}
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{cclicenses}
+
+
+\newcommand{\docabstract}{}
+
+\begin{document}
+
+\makeatletter\renewcommand{\ALG@name}{Algoritmo}
+
+\maketitle
+
+%-----------------------------------------------------------------------------------------------------
+%	ÍNDICE
+%-----------------------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+\begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
+  This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.
+  \begin{center}
+    \includegraphics[scale=1]{licencia.png}
+  \end{center}
+\end{mdframed}
+
+\newpage 
+\section{Prólogo}
+
+Las presentes notas fueron confeccionadas por mí durante el verano de 2016. Están basadas en los apuntes de la profesora María del Pilar Carrasco Carrasco del curso 2016-2017. Estas notas tienen lagunas en su redacción aunque los resultados más importantes del curso aparecen razonados. Si alguna persona quisiera completar el trabajo aquí realizado, sólo tiene que ponerse en contacto conmigo ya que será difícil que vuelva sobre ellas para completarlas. Así mismo existe una colección de ejercicios todavía más pequeña que estas notas y que podría ser también completada. 
+
+Quería por último agradecer a Andrés Herrera la elaboración de la plantilla de latext con la que he trabajado y a los compañeros del Doble Grado en Ingeniería Informática y Matemáticas de la Universidad de Granada que me han inspirado para realizar este tipo de aportaciones. Espero que estas notas te sirvan de ayuda querido lector para superar con mayor facilidades el curso de Álgebra II y quien sabe si profundizar más en aspectos que nosotros no pudimos. También quería recordarte que ni Pilar Carrasco ni yo hemos inventado la rueda (bueno quizá ella sí) y que encontrarás el contenido de estas notas parcialmente en muchos libros y en internet en particular en el sitio de preguntas y respuestas \url{math.stackexchange.com}. Una lista de libros más o menos completa y más o menos útil es la siguiente:
+
+Basic Algebra I, N. Jacobson. W. H. Freeman and Company, 1985.\\
+A Book of Abstract Algebra, C. Pinter. McGraw-hill, 1982.\\
+Algebra, M. Artin. Prentice-Hall, 1991.\\
+Introduction to Group Theory, W. Ledermann. Logman Group, 1973.\\
+Topics in Geometric Group Theory, P. de la Harpe. The University of Chicago Press, 2000.\\
+Visual Group Theory, N. Carter. Mathematical Association of America, 2009.\\
+Algebra, L. Grove. Academic Press, 1983.\\
+History of Algebraic Geometry, J. Dieudonné. Wadsworth, In., 1985.\\
+Topics in Algebra, I. Herstein. Gin and Company, 1964.\\
+The theory of groups, H. Zassenhaus. Chelsea Publishing Company, 1949.\\
+Advanced Modern Algebra, J. Rotman. American Mathematical Society, 2010.\\
+Fraileigh (como se llame, el clásico).\\
+Abstract algebra, Dummit y Foote. John Wiley and Sons, 2004.\\
+Problems in Group Theory, J. Dixon. Blaisdell Publishing Company, 1967.\\
+Finite Group Theory, M. Aschbacher. Cambridge University Press, 2000.
+
+Cabe destacar aunque no se siga el mismo orden en la Universidad de Granada:
+
+Números, grupos y anillos. J. Dorronsoro y E. Hernández. Addison-Wesley, 1996.
+
+\newpage
+
+\section{Tema 1: preliminares}
+
+\subsection{El anillo de enteros módulo n}
+
+Para cada $n \ge 1$ consideramos $\mathbb{Z}_n$ que es el conjunto obtenido como cociente $\mathbb{Z}/n\mathbb{Z}$. Esto es, mediante la relación de equivalencia: $$x \sim y \iff x,y \in \mathbb{Z}_n \iff x-y \in n\mathbb{Z} \iff n | (x-y)$$
+
+Considerando en $\mathbb{Z}_n$ la estructura de dominio euclídeo tenemos que por algoritmo de Euclides: $$\forall a,b \in \mathbb{Z} \; b \neq 0 \; \exists! q,r \; a = bq+r \; con \; 0 \leq r < |b| $$ y por tanto existen exactamente n clases de equivalencia en $\mathbb{Z}_n$ y una colección de representantes es $\{0,1,...,n-1\}$.
+
+Denotaremos al resto $r$ como $r = res(a,b)$ o $a \equiv r \; mod(b)$ y para poder operar con los representantes adecuados definiremos las operaciones: $$i+j = res(i+j,n)$$ y $$i \cdot j = res(i \cdot j,n)$$.
+
+\begin{proposition}
+$\mathbb{Z}_n$ es un anillo conmutativo cuyo elemento neutro para la suma es la clase cuyo representante es el cero y cuyo elemento neutro para el producto es la clase cuyo representante es el uno. Además:
+
+$\mathbb{Z}_n$ es un cuerpo $\iff n$ es un número primo.
+\end{proposition}
+
+\begin{proof}
+
+Demostraremos sólo la última afirmación. 
+
+$\Rightarrow$ Por reducción al absurdo, si $\mathbb{Z}_n$ es un cuerpo y asumimos que n no es primo entonces n puede factorizarse como $n = r \cdot s$ donde $1 < r,s < n$. Luego en $\mathbb{Z}_n$ se verifica que $0 = r \cdot s$ y por tanto a o b son divisores de cero. Esto es una contradicción ya que un cuerpo es siempre un dominio de integridad y en un dominio de integridad no hay divisores de cero distintos de cero.
+
+$\Leftarrow$ Por otro lado, si n es primo y tomamos $1 \leq r \leq n-1$ se verifica que $mcd(r,n) = 1$ y por el teorema de Bézout $\exists a,b \in \mathbb{Z}_n$ tales que $1 = an + br$ y tomando restos en $\mathbb{Z}_n$ queda que $1 = br$ de donde b es el inverso de r.
+
+\end{proof}
+
+Recordemos que las unidades de un anillo era el conjunto: $$U(A) = \{a \in A : \exists a^{-1} \in A \; tal \; que \; aa^{-1}=1=a^{-1}a\}$$ Las unidades de los anillos de enteros $\mathbb{Z}_n$ son conocidas:
+
+\begin{proposition}[Unidades de los anillos de restos módulo n]
+U($\mathbb{Z}_n$) = $\{r \in \mathbb{Z}_n : r \neq 0 \; y \; mcd(r,n) = 1 \}$
+\end{proposition}
+
+\begin{proof}
+
+Llamemos A = $\{r \in \mathbb{Z}_n : r \neq 0 \; y \; mcd(r,n) = 1 \}$ y probemos la igualdad con U($\mathbb{Z}_n$) por doble inclusión.
+
+Veamos que $A \subseteq U(\mathbb{Z}_n)$. Si $a \in A$ por el teorema de Bézout $\exists r,s \in U(\mathbb{Z}_n)$ tales que $1 = nr+as$ y tomando restos módulo n se verificará que $1 = as$. Luego $a \in U(\mathbb{Z}_n)$.
+
+Veamos que $U(\mathbb{Z}_n) \subseteq A$. Si $u \in U(\mathbb{Z}_n)$ tenemos que en $\mathbb{Z}_n$, $\exists u^{-1}$ tal que $uu^{-1} = 1$ y por tanto, en $\mathbb{Z}$ tendremos que $uu^{-1} = 1 + ny$. Sea $d = mcd(u,n)$ entonces $d$ divide a u y divide a n por lo que debe dividir a 1, y por tanto, debe ser 1.
+
+\end{proof}
+
+\subsection{Función phi de Euler}
+
+\begin{definition}[Función phi de Euler]
+La función phi de Euler está dada por: $$\phi(n) := |U(\mathbb{Z}_n)|$$
+\end{definition}
+
+\begin{proposition}[Propiedades de la función phi de Euler]
+1. Si $mcd(m,n) = 1$ entonces $\phi(mn) = \phi(m) \phi(n)$. \\
+2. Si $p \ge 1$ es un número primo entonces $\phi(p^{e}) = p^{e-1}(p-1)$.
+\end{proposition}
+
+\begin{proof}
+Veamos 1. Usamos la propiedad de las unidades del anillo producto que dice que $$U(\mathbb{Z}_m \times \mathbb{Z}_n) = U(\mathbb{Z}_m) \times U(\mathbb{Z}_n)$$ y el teorema chino de los restos que dice que $$mcd(m,n) = 1 \iff \mathbb{Z}_{mn} \cong \mathbb{Z}_m \times \mathbb{Z}_n$$ De este modo, aplicando la primera propiedad se obtiene que $$|U(\mathbb{Z}_m \times \mathbb{Z}_n)| = |U(\mathbb{Z}_m)| \times |U(\mathbb{Z}_n)| = \phi(m) \phi(n)$$ y aplicando la segunda y el hecho de que los isomorfismos mantienen el número de unidades del anillo tendremos que $$\phi(mn) = |U(\mathbb{Z}_{mn})| = |U(\mathbb{Z}_m \times \mathbb{Z}_n)|$$
+
+Veamos 2. Sea $p \ge 1$ un número primo. $$\phi(p^e) = |U(\mathbb{Z}_{p^e})| = |\{r \in U(\mathbb{Z}_{p^e}) : r \neq 0, mcd(r,p^e) = 1\}| = |\mathbb{Z}_{p^e}|-|\{0,p,2p,...,(p-1)p^{e-1}\}| = p^e - p^{e-1} = p^{e-1}(p-1)$$
+\end{proof}
+
+\newpage
+\section{Tema 2: grupos. Definiciones y ejemplos. Homomorfismos de grupos.}
+
+\subsection{Definición de grupo y primeras propiedades}
+
+\begin{definition}
+Un grupo consiste de un conjunto G no vacío junto con una operación interna $G \times G \rightarrow G$ que llamaremos producto y tal que a cada pareja $(x,y)$ le asigna el elemento $xy$ y que verifica las siguientes propiedades:
+
+1. Asociativa: $\forall x,y,z \in G (xy)z = x(yz)$ \\
+2. Existencia de elemento neutro: $\exists 1 \in G : 1x = 1 = x1 \forall x \in G$ \\
+3. Existencia de elemento simétrico: $\forall x \in G \exists x^{-1} \in G$ tal que $x^{-1}x = 1 = xx^{-1}$ 
+
+Además se dice que G es un grupo conmutativo o abeliano si verifica:
+
+4. $\forall x,y \in G \; xy = yx$
+\end{definition}
+
+\begin{proposition}
+Sea G un grupo:
+
+1. El elemento neutro es único. \\
+2. Para cada $x \in G$ el inverso es único. \\
+3. Para cada $x \in G (x^{-1})^{-1} = x$. (Propiedad involutiva) \\
+4. Para cualesquiera $a,b \in G$, las ecuaciones $aX = b$ y $Ya = b$ tienen solución única. \\
+5. Si $xx = x$ entonces $x=1$. \\
+6. Para cada $(x_1,x_2,...,x_n) \in G^{n}$ definimos $\prod_{i=1}^{n} a_i = a_1...a_n$ inductivamente como $\prod_{i=1}^{1} a_i = a_1$ y para $n \geq 1$ $\prod_{i=1}^{n} a_i = (\prod_{i=1}^{n-1} a_i)a_n$.
+
+Para cada $1 \leq m < n$ se verifica $\prod_{1}^{n} a_i = (\prod_{1}^{m} a_i)(\prod_{m+1}^{n} a_i)$. (Propiedad asociativa generalizada)\\
+7. $(\prod_{1}^n a_i)^{-1} = \prod_{n}^{1} a_i^{-1} = a_n^{-1}...a_1^{-1}$. \\
+8. Si para $a_1 = a_2 = ... = a_n$ definimos $a^n := \prod_{1}^{n} a_i$. Se verifica que $\forall r,s \ge 1$ se tiene $a^ra^s= a^{r+s}$  \\
+9. $\forall n \ge 1$ se verifica $(a^n)^{-1} = (a^{-1})^n$ y podemos definir $a^{-n} := (a^n)^{-1} = (a^{-1})^n$ y $a^0 := 1$. \\
+10. $\forall r,s \in \mathbb{Z}$ se verifica $a^ra^s = a^{r+s}$ y $a^{rs} = (a^r)^s$ (Producto de potencias de la misma base y potencia de una potencia)
+\end{proposition}
+
+\begin{proposition}[Definición sin conmutación]
+Sea G un conjunto no vacío con una operación interna $G \times G \rightarrow G$ verificando:
+
+1. $\forall x,y,z \in G$ se verifica $(xy)z = x(yz)$. \\
+2. $\exists 1 \in G$ tal que $x1 = x \; \forall x \in G$. \\
+3. $\forall x \in G \; \exists x^{-1}$ tal que $xx^{-1} = 1$. \\
+
+entonces se verifica que para todo $x \in G$:
+
+1. $x1 = x = 1x$ \\
+2. $x^{-1}x = 1 = xx^{-1}$
+
+de modo que las condiciones anteriores son necesarias y suficientes para que G sea un grupo.
+\end{proposition}
+
+\begin{definition}[Orden de un grupo. Tabla de Cayley.]
+Si G es un grupo finito, el número de elementos de G lo llamaremos orden de G y lo denotaremos por $|G|$. Además si $G = \{x_1,x_2,...,x_n\}$ podemos representarlo por su tabla de Cayley que aparece en la Tabla 1.
+
+\begin{table}
+\centering
+\caption{Tabla de Cayley genérica}
+\begin{tabular}{l|llll}
+ & \textbf{$x_1$} & \textbf{...} & \textbf{$x_n$} \\
+\hline
+\textbf{$x_1$} & $x_1 x_1$ & ... & $x_1 x_n$\\
+\textbf{...} & ... & ... & ... \\
+\textbf{$x_n$} & $x_n x_1$ & ... & $x_n x_n$\\
+\end{tabular}
+\end{table}
+\end{definition}
+
+Algunas propiedades interesantes de esta tabla es que nos dice si el grupo es abeliano si y sólo si la tabla es simétrica y que en cada fila o columna aparece una y solo una vez cada elemento del grupo.
+
+\subsection{Ejemplos de grupos}
+
+\subsubsection{Anillos y unidades de un anillo.}
+
+Si A es un anillo entonces $(A,+)$ es un grupo abeliano. Por otro lado, $(U(A),\cdot)$ es un grupo que será abeliano si A es un anillo conmutativo (esto es, si la operación producto es conmutativa). Esto nos da ya numerosos ejemplos:
+
+$\mathbb{Z}-U(\mathbb{Z})=\{-1,1\}$ \\
+$\mathbb{Q}-\mathbb{Q}^{*}$ \\
+$\mathbb{R}-\mathbb{R}^{*}$ \\
+$\mathbb{C}-\mathbb{C}^{*}$ \\
+$\mathbb{Z}_n-U(\mathbb{Z}_n)$ nótese $|\mathbb{Z}_n| = n,|U(\mathbb{Z}_n)| = \phi(n)$ 
+
+\subsubsection{Grupo de las raíces n-ésimas de la unidad.}
+
+Consideramos para $n \ge 2$ el conjunto $\mu_n = \{z \in \mathbb{C}^{*} : z^n = 1\}$ con la operación producto de números complejos. 
+
+Otra forma de representar este grupo y la operación correspondiente de forma explícita es la siguiente:
+$$\mu_n = \{\xi_k = cos(\frac{2k\pi}{n})+isen(\frac{2k\pi}{n}) : 0 \le k < n-1 \}$$
+$$\xi_k \cdot \xi_r = \xi_{res(k+r,n)} \; 0 \le k,r < n$$
+
+de modo que esta es la versión multiplicativa de $(\mathbb{Z}_n,+)$, esto es, son isomorfos.
+
+\subsubsection{Grupo lineal general de orden n.}
+
+Consideramos para $n \ge 2$ el conjunto de las matrices de orden n con coeficientes sobre un cuerpo K, $M_n(K)$. construido sobre él se tiene el grupo lineal general de orden n definido como $Gl_n(K) := U(M_n(K))$. Claramente $Gl_n(K) = \{A \in M_n(K) : |A| \neq 0\}$ y será un grupo con el producto de matrices que en general no es abeliano.
+
+\subsubsection{Grupos simétricos}
+
+Sea X un conjunto no vacío. El grupo de permutaciones de X, denotado S(X), es el conjunto de todas las aplicaciones biyectivas de X en X esto es $S(X) = \{f:X \rightarrow X \; : \; f \; es \; biyectiva\}$ donde la operación considerada es la composición de funciones.
+
+Para $n \ge 2$ definiremos el n-ésimo grupo simétrico o grupo de permutaciones de n elementos como $S_n = S(\{1,...,n\})$. Claramente, $|S_n| = n!$.
+
+Representaremos un elemento $\alpha \in S_n$ como 
+$\alpha = \bigl(\begin{smallmatrix}
+  1 & 2 & \cdots & n \\
+  \alpha(1) & \alpha(2) & \cdots & \alpha(n) 
+\end{smallmatrix}\bigr)$
+y dadas dos permutaciones $\alpha,\beta \in S_n$ su producto es 
+$\alpha \beta = \bigl(\begin{smallmatrix}
+  1 & 2 & \cdots & n \\
+  \alpha(\beta(1)) & \alpha(\beta(2)) & \cdots & \alpha(\beta(n)) 
+\end{smallmatrix}\bigr)$.
+
+Se verifica que $S_n$ es conmutativo si y sólo si $n=2$.
+
+\begin{definition}[Permutaciones disjuntas]
+Se dice que dos permutaciones $\alpha,\beta \in S_n$ son disjuntas si lo que mueve una lo deja fija la otra, esto es, $\alpha(x) \neq x \Rightarrow \beta(x) = x$.
+\end{definition}
+
+\begin{proposition}
+Las permutaciones disjuntas conmutan.
+\end{proposition}
+\begin{proof}
+Supongamos que $	\alpha(x) \neq x$, de modo que $\beta(x) = x$. Por tanto, $\alpha(\beta(x)) = \alpha(x)$ y, por otro lado, $\beta(\alpha(x)) = \alpha(x)$ ya que como $\alpha$ tiene que ser inyectiva y $\alpha(x) \neq x$, tiene que ser $\alpha(\alpha(x)) \neq x$ luego $\beta$ fija a $\alpha(x)$ y se tiene la igualdad.
+
+En otro caso, podríamos tener que $\beta(x) \neq x$ en cuyo caso se aplica un razonamiento análogo al anterior. Finalmente, si $\alpha(x) = x = \beta(x)$ entonces claremente $\alpha(\beta(x)) = x = \beta(\alpha(x))$.
+\end{proof}
+
+\begin{definition}[Ciclo]
+Una permutación es un ciclo si existen $x_1,...,x_r$ tales que $\alpha(x_1) = x_2,...,\alpha(x_r) = x_1$ y $\alpha(x) = x \; \forall x \notin \{x_1,...,x_r\}$. Lo denotaremos $\alpha = (x_1 \, x_2 \, ... \, x_r)$ y diremos que tiene longitud r. 
+\end{definition}
+
+Observemos que esta notación no es unívoca y que un ciclo de longitud r tiene r notaciones diferentes. Observemos también que dos ciclos $\alpha = (x_1 \, x_2 \, ... \, x_r)$ y $\beta = (y_1 \, x_2 \, ... \, y_s)$ son disjuntos $\iff \{x_1 \, x_2 \, ... \, x_r \} \cap \{y_1 \, x_2 \, ... \, y_s \} = \emptyset$ lo que motiva el nombre utilizado.
+
+\begin{theorem}[Descomposición de una permutación en producto de ciclos disjuntos]
+Sea $n \ge 2$. Toda permutación distinta de la identidad en $S_n$ se expresa como producto de ciclos disjuntos de manera única salvo el orden de los ciclos y su primer elemento.
+\end{theorem}
+
+\begin{proof}
+La idea para demostrar la existencia de la descomposición parte de considerar permutaciones por ejemplo de tres elementos donde sólo se mueven dos. Entonces nos damos cuenta que por la inyectividad deben ser ciclos. Entonces se realiza una inducción sobre el número de elementos que mueve la permutación. Se construye un primer ciclo y se aplica la hipótesis de inducción.
+
+Tomemos una permutación $\alpha \neq 1$ y sea s el número de elementos que mueve $\alpha$. Si $s = 2$ necesariamente debe ser un ciclo de longitud dos. Ya que si $x,y$ son los elementos que mueve $\alpha$ debe ser $\alpha(x) = y$ ya que si tuviéramos $\alpha(x) = z$ con $z \neq x,y$ entonces como $\alpha(z) = z$ se violaría la inyectividad de $\alpha$. Por motivos análogos debe ser $\alpha(y) = x$.
+
+Consideremos que $s > 2$ y tomemos $x$ un elemento que es movido por $\alpha$. Consideremos la lista $\{x,\alpha(x),...\alpha^n(x)\}$ en esta lista debe haber repeticiones puesto que $I_n$ tiene n elementos y la lista tiene $n+1$ elementos. Por tanto existirán $k,k' \in \mathbb{N}, k > k'$ tales que $\alpha^{k}(x) = \alpha^{k'}(x)$ luego $\alpha^{k-k'}(x) = x$. Consideremos el menor valor $r$ tal que $\alpha^r(x) = x$ y formemos el ciclo $\alpha_1 = (x \, \alpha(x) \, ...  \, \alpha^{r-1}(x))$.
+
+Consideremos la permutación $\alpha'$ que deja fijos los elementos que mueve $\alpha_1$ y aplica $\alpha$ a los elementos que no mueve $\alpha_1$. Claramente  ambas permutaciones son disjuntas. Pero hay que comprobar que $\alpha = \alpha_1 \alpha'$.
+
+Tomemos un elemento $y$ que sea movido por $\alpha_1$ entonces $\alpha(y) = \alpha_1(\alpha'(y)) = \alpha_1(y) = \alpha(y)$. Tomemos un elemento que no es movido por $\alpha_1$, entonces $\alpha(y) = \alpha_1(\alpha'(y)) = \alpha_1(\alpha(y))$ y acabaríamos si demostramos que $\alpha(y)$ no es movido por $\alpha_1$. Pero esto es claro ya que podríamos aplicar el razonamiento anterior demostrando que existe un valor k tal que $\alpha^k(y) = y$ y por tanto y estaría en el ciclo, lo cual es una contradicción.
+
+Ahora bien $\alpha'$ mueve $s-r < s$ elementos y por hipótesis de inducción existen $\alpha_2,...,\alpha_m$ ciclos disjuntos tales que $\alpha' = \alpha_2...\alpha_m$ finalmente $\alpha = \alpha_1\alpha_2...\alpha_m$ y los ciclos son disjuntos.
+
+Veamos ahora la unicidad de la descomposición. Tomemos dos descomposiciones distintas $\alpha = \alpha_1\alpha_2...\alpha_m$ y $\beta = \beta_1\beta_2...\beta_{m'}$ donde $m \le m'$. Queremos demostrar que todos los ciclos salvo el orden y el primer elemento son iguales. Lo hacemos por inducción sobre m pero primeramente demostramos que el primer ciclo es igual en ambas descomposiciones.
+
+En efecto, sea $x$ un elemento tal que $\alpha_1(x) \neq x$. Entonces se puede escribir $\alpha_1$ como $\alpha_1 = (x \, \alpha_1(x) \, ...) = (x \, \alpha(x),...)$. Como las permutaciones $\beta_i$ son disjuntas, se verifica que $\beta_i(x) \neq x$ para una sola de ellas y podemos suponer que $i = 1$ ya que permutaciones disjuntas conmutan. Tendremos $\beta_1 = (x \, \beta_1(x) \, ...) = (x \, \alpha(x),...)$. En definitiva, $\alpha = \alpha_1\alpha_2...\alpha_m = \alpha_1\beta_2...\beta_{m'}$
+
+Ahora, para $m = 1$ necesariamente se tendrá $m' = 1$ ya que en caso contrario tendríamos $1 = \beta_2...\beta_{m'}$ lo que es una contradicción ya que son ciclos disjuntos. Por tanto se tendría la igualdad. 
+
+Aplicando la hipótesis de inducción fuerte, si $m > 1$ del hecho de que $\alpha = \alpha_1\alpha_2...\alpha_m = \alpha_1\beta_2...\beta_{m'}$ se deduce $\alpha_2...\alpha_m = \beta_2...\beta_{m'}$. De donde se tendrá que $m = m'$ y $\alpha_i = \beta_i$ con $i=2,...,m$.
+\end{proof}
+
+\begin{proposition}[Propiedades de los ciclos]\label{proposition:propiedades-ciclos}
+Sea $n \ge 2$ y consideremos el grupo $S_n$:
+
+1. $(x_1 \, x_2 \, ... \, x_r)^{-1} = (x_r \, x_{r-1} \, ... \, x_1)$ (inverso de un ciclo)\\
+2. $(x_1 \, x_2 \, ... \, x_r) = (x_1 \, x_2)(x_2 \, x_3)...(x_{r-1} \, x_r)$ (descomposición en transposiciones)\\
+3. $\forall \alpha \in S_n \; \alpha (x_1 \, x_2 \, ... \, x_r) \alpha^{-1} = (\alpha(x_1) \, \alpha(x_2) \, ... \, \alpha(x_r))$. (conjugado)\\
+4. $(x_1 \, x_2 \, ... \, x_r)^k \neq 1$ si $1 \le k < r$ y $(x_1 \, x_2 \, ... \, x_r)^r = 1$. (el orden de un ciclo coincide con su longitud).
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}[Transposición]
+Una transposición es un ciclo de longitud dos.
+\end{definition}
+
+\begin{theorem}[Teorema sobre la paridad de una permutación]\label{theorem:paridad-permutacion} 
+Dada una permutación $\alpha \in S_n$ y dos expresiones de $\alpha$ como producto de transposiciones $\alpha = \tau_1...\tau_r$ y $\alpha' = \tau_1'...\tau_s'$. Entonces $r \equiv s \, (mod \, 2)$.
+\end{theorem}
+
+\begin{proof}
+La idea para demostrar este teorema es empezar con el caso de la identidad y demostrar que si mediante una transposición intercambio dos elementos, luego los tengo que volver a intercambiar. Luego, para cualquier permutación $\alpha$ se aplicará que $1 = \alpha\alpha^{-1}$. Veámoslo.
+
+Supongamos que $1 = \tau_1...\tau_r$ y demostremos que r no puede ser impar. Lo hacemos por el método del descenso infinito. Claramente, si $r = 1$ no es posible descomponer la identidad en una sola transposición. Supongamos que r es un número impar mayor que uno y elijamos un elemento m que aparezca por primera vez en cierta transposición $\tau_j$. Entonces $j < r$ porque si no m se movería y no volvería a su lugar. Veamos los posibles casos que se nos pueden presentar para el producto de las transposiciones $\tau_j$ y $\tau_{j+1}$.
+
+$\tau_j\tau_{j+1}=
+\begin{cases}
+(mx)(mx) = 1 \\
+(mx)(my) = (xy)(mx) \\
+(mx)(yz) = (yz)(mx) \\
+(mx)(xy) = (xy)(my)
+\end{cases}$
+
+En el primer caso hemos reducido el número de transposiciones a $r-2$ y en el resto de los casos transladamos m una transposición hacia delante. Como no puede ocurrir que $j = r$ necesariamente al repetir el proceso se llega al primer caso. Se obtiene así una sucesión descendente de números impares y por tanto si existiera la descomposición para r también existiría para 1. Como esto no es posible, se deduce que necesariamente $r \equiv 0 (mod 2)$.
+
+Para $\alpha$ arbitrario tenemos que si $\alpha = \tau_1...\tau_r = \tau_1'...\tau_s'$ entonces $1 = \alpha\alpha^{-1} = \tau_1...\tau_r(\tau_1'...\tau_s')^{-1} = \tau_1...\tau_r\tau_s'^{-1}...\tau_1'^{-1} = \tau_1...\tau_r\tau_s'...\tau_1'$ luego por el caso anterior $r+s \equiv 0 (mod \, 2)$, esto es, $r \equiv s (mod \, 2)$.
+\end{proof}
+
+\begin{definition}[Signatura de una permutación]
+Diremos que una permutación $\alpha$ es par si se expresa como producto de un número par de transposiciones y diremos que es impar si se expresa como producto de un número impar de transposiciones. La signatura de una permutación será el número $s(\alpha)$ definido como $s(\alpha) = 1$ si $\alpha$ es una permutación par y $s(\alpha) = -1$ si $s(\alpha)$ es una permutación impar.
+\end{definition}
+
+\subsubsection{Grupos diédricos.}
+
+Para $n \ge 3$ definimos el n-ésimo grupo diédrico como el grupo de movimientos del plano real $\mathbb{R}^2$ que dejan fijo el polígono regular de n lados, esto es, $D_n = \{T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 :$ T es isometría  y  $T(P_n) = P_n\}$ donde la operación es la composición de aplicaciones. Se verifica que $|D_n| = 2n$ donde conocemos explícitamente los elementos del grupo:
+
+$R_k$ es el giro centrado en el origen y ángulo $\frac{2k\pi}{n}$ con $0 \le k < n$.
+$S_1,...,S_n$ son las simetrías respecto de los n ejes de simetría de $P_n$, esto es:
+\begin{itemize}
+\item Si n es impar son las rectas que unen cada vértice con el origen.
+\item Si n es par son las rectas que unen vértices opuestos o los puntos medios de lados opuestos.
+\end{itemize}
+  
+Este grupo se puede manejar de forma abstracta con las siguientes identidades fundamentales:
+
+$r^n = 1 = s^2$\\
+$sr = r^{-1}s$
+
+de modo que se suele presentar el grupo $D_n$ en la forma:
+
+$D_n = <r,s : r^n = 1 = s^2,sr = r^{-1}s>$
+
+este tipo de notación indica a la izquierda los elementos que generan el grupo (en un sentido que precisaremos más tarde) y a la derecha las reglas de operación en el mismo. Notemos que estos grupos no son conmutativos.
+
+\subsubsection{Grupo de los cuaternios.}
+
+Consideremos el conjunto 
+$Q_2 = \{
+1 := \begin{bmatrix}
+    1 & 0  \\
+    0 & 1 
+-1 := \end{bmatrix},
+\begin{bmatrix}
+    -1 & 0  \\
+    0 & -1 
+\end{bmatrix},
+i := \begin{bmatrix}
+    0 & 1  \\
+    -1 & 0 
+\end{bmatrix},
+-i := \begin{bmatrix}
+    0 & -1  \\
+    1 & 0 
+\end{bmatrix},
+j := \begin{bmatrix}
+    0 & i  \\
+    i & 0 
+\end{bmatrix},
+-j := \begin{bmatrix}
+    0 & -i  \\
+    -i & 0 
+\end{bmatrix},
+k := \begin{bmatrix}
+    i & 0  \\
+    0 & -i 
+\end{bmatrix},
+-k := \begin{bmatrix}
+    -i & 0  \\
+    0 & i 
+\end{bmatrix} \}$
+de matrices invertibles de orden dos y con coeficientes complejos y consideremos la operación dada por el producto usual de matrices. Dibujando la tabla de Cayley podemos ver que de hecho no es un grupo abeliano.
+
+De nuevo, se puede dar una representación abstracta de este grupo mediante las relaciones:
+
+$(-1)^2 = 1$ \\
+$i^2 = j^2 = k^2 = -1$ \\
+$ij = k$ \\
+$(-1)x = x(-1) = -x$ con $x = i,j,k$
+
+el resto de relaciones se deduce a partir de estas. Se puede aplicar la regla del tornillo considerando el eje x como la unidad i (eje que sale hacia nosotros), el eje y como la unidad j (eje horizontal) y el eje z como la unidad k (eje vertical).
+
+\subsubsection{Grupo de Klein.}
+
+\begin{definition}[Producto directo de grupos]
+Dados dos grupos $G_1$ y $G_2$ definimos su producto directo como el grupo $$G_1 \times G_2 = \{(x_1,x_2):x_1 \in G_1,x_2 \in G_2\}$$ con la operación $$(x_1,x_2)(y_1,y_2) = (x_1y_1,x_2y_2)$$
+\end{definition}
+
+El grupo de Klein es $\mu_2 \times \mu_2 = \{(1,1),(1,-1),(-1,1),(-1,-1)\}$ junto con la operación del producto de grupos.
+
+Otra forma de presentar el grupo de klein es $K = <x,y : x^2 = y^2 = 1, xy = yx>$.
+
+\subsubsection{Grupo alternado.}
+
+Para $n \ge 2$ definimos el n-ésimo grupo alternado $A_n$ como el conjunto de las permutaciones pares de $S_n$. Esto es: $$A_n = Ker(s) = \{\alpha \in S_n : \alpha \, es \, par\} \le S_n$$ Donde s es la aplicación signatura y Ker es el núcleo de dicha aplicación, conceptos que explicaremos pero que demuestran automáticamente que $A_n$ es un grupo. Además, se puede demostrar que el orden de $A_n$ es $\frac{n!}{2}$.
+
+\subsection{Homomorfismos.}
+
+\begin{definition}[Homomorfismos de grupos]
+Sean H y G dos grupos. Definimos un homomorfismo de grupos de G en H como una aplicación $f:G \rightarrow H$ tal que $$f(xy) = f(x)f(y) \; \forall x,y \in G$$
+
+Diremos que f es monomorfismo si es inyectiva, que f es epimorfismo si es sobreyectiva y que es isomorfismo si es biyectiva. Esto último lo denotaremos por $\cong$.
+\end{definition}
+
+\begin{example}
+La aplicación signatura $s:S_n \rightarrow \mu_2$ es un homomorfismo de grupos.
+
+En efecto, sean $\alpha,\beta \in S_n$ entonces por el teorema \ref{theorem:paridad-permutacion} podemos escribir $\alpha = \tau_1...\tau_r$ y $\beta = \tau_1'...\tau_s'$ de donde $s(\alpha) = (-1)^r$ y $s(\beta) = (-1)^s$. Pero entonces $\alpha\beta = \tau_1...\tau_r\tau_1'...\tau_s'$ luego $s(\alpha\beta) = (-1)^{r+s}$ de modo que $s(\alpha\beta) = s(\alpha)s(\beta)$.
+\end{example}
+
+\begin{proposition}
+1. Para todo grupo G, la aplicación identidad $1:G \rightarrow G$ es un homomorfismo de grupos. \\
+2. Si G,H y L son grupos y $f:G \rightarrow H$, $g:H \rightarrow L$ son dos homomorfismos (respectivamente monomorfismos, epimorfismos o isomorfismos) entonces $g \circ f:G \rightarrow L$ es un homomorfismos (respectivamente monomorfismo, epimorfismo o isomorfismo). \\
+3. Si $f:G \rightarrow H$ es un isomorfismo entonces $f^{-1}:H \rightarrow G$ es también es un isomorfismo, $f \circ f^{-1} = 1_G$ y  $f^{-1} \circ f = 1_G$.
+\end{proposition}
+
+Uno de los problemas que trataremos es la clasificación de grupos finitos. La clasificación de grupos abelianos finitos es materia del Álgebra I y se clasificarán los grupos abelianos no finitos hasta el orden quince. El objetivo es dado un tamaño del grupo saber cuántos grupos no isomorfos hay.
+
+\newpage
+
+\section{Tema 3: subgrupos. Órdenes e índices.}
+
+\subsection{Definición de subgrupo. Ejemplos y primeros resultados.}
+
+\begin{definition}[Subgrupos de un grupo]
+Sea G un grupo. Un subgrupo H de G es un subconjunto no vacío de G que es cerrado bajo productos e inversos. Lo denotaremos como $H \le G$.
+\end{definition}
+
+Claramente, un subgrupo H de un grupo G es en sí mismo un grupo con la operación producto de G restringida a los elementos de H ya que la operación producto de G es interna en H y la operación inversión también. Además el elemento neutro también debe ser el mismo sin más que operar en $x 1 = 1$.
+
+\begin{example}
+1. Subgrupos impropios de un grupo: todo grupo G admite dos subgrupos llamados impropios. El subgrupo trivial $1 = {1}$ y el total G. Al resto de subgrupos se le llama subgrupos propios.
+2. $\mathbb{Q}^{*} \le \mathbb{R}^{*} \le \mathbb{C}^{*}$\\
+$\mu_n \le \mathbb{C}^{*}$\\
+$m|n \Rightarrow \mu_m \le \mu_n$\\
+3. En $D_n$ tenemos el subgrupo de las rotaciones $H = \{1,r,r^2,...,r^{n-1}\}$ y subgrupos cíclicos de orden 2 $K = \{1,s\}$ y $L = \{1,r^is\}$. Sin embargo, el conjunto de las simetrías $\{1,s,rs,r^2s,...,r^{n-1}s\}$ no es un subgrupo de $D_n$.\\
+4. En $S_4$ podemos considerar un subgrupo tipo Klein $K = \{1,\alpha_1 = (12)(34),\alpha_2=(13)(24),\alpha_3=(14)(23)\}$.
+\end{example}
+
+\begin{proposition}[Criterio de subgrupo]\label{proposition:criterio-subgrupo}
+Un subconjunto H no vacío de un grupo G es un subgrupo si y sólo si se verifica que
+$\forall x,y \in G$ se tiene $xy^{-1} \in H$.
+\end{proposition}
+
+\begin{proof}
+$\Rightarrow$ Si asumimos que H es un subgrupo de G como es cerrado para inversos e $y \in H$ entonces $y^{-1} \in H$ y como H es cerrado para productos y $x \in H$ se tiene que $xy^{-1} \in H$.
+
+$\Leftarrow$ Supongamos que $\forall x,y \in G$ se tiene $xy^{-1} \in H$. Sea $u,v \in H$ y veamos que $uv \in H$ tomemos $x = u,y = v^{-1}$ entonces por hipótesis $xy^{-1} = u(v^{-1})^{-1} = uv \in H$. Veamos también que H es cerrado para inversos. Sea $y \in H$ como la unidad también está en H, tomando $x = 1$ el producto $xy^{-1} = 1y^{-1} = y^{-1} \in H$ de donde H es cerrado para inversos.
+\end{proof}
+
+\begin{proposition}[Criterio de subgrupo para subconjuntos finitos]
+Sea G un grupo y H un subconjunto finito no vacío de G. 
+
+H es un subgrupo de G $\iff$ el producto es interno en H.
+\end{proposition}
+
+\begin{proof}
+$\Rightarrow$ Es parte de la definición de subgrupo. \\
+$\Leftarrow$ Falta demostrar que H es cerrado para inversos. Como H es finito necesariamente existen $k,r \in \mathbb{N}, k>r$ tales que $x^k = x^r$ luego $x^{k-r} = 1$ de donde $x^{k-r-1} = x^{-1}$. 
+\end{proof}
+
+\begin{proposition}[Teorema de correspondencia entre homomorfismos y subgrupos]
+1.Los homomorfismos preservan los subgrupos. Si $f:G \rightarrow G'$ es un homomorfismo de grupos, $H \le G$ y $H' \le G'$ entonces $f(H) \le G'$ y $f^{-1}(H') \le G$.\\
+2. Definimos el núcleo de un homomorfismo f como $Ker(f) = f^{-1}(\{1\})$ y la imagen del homomorfismo f como $Im(f) = f(G)$. Claramente, el núcleo y la imagen son subgrupos de G y G' respectivamente. Además, f es monomorfismo $\iff Ker(f) = \{1\}$ y f es epimorfismo $\iff Im(f) = G'$.
+\end{proposition}
+\begin{proof}
+1. En efecto, por ser $H \le G$ se verifica que $\forall x,y \in H \, xy^{-1} \in H$ y por ser $f$ homomorfismo, dados $f(x),f(y) \in f(H)$, $f(x)f(y)^{-1} = f(xy^{-1}) \in f(H)$. 
+
+De forma análoga, por ser $H' \le G'$ se verifica que $\forall x,y \in H', xy^{-1} \in H'$ y por ser $f$ homomorfismo, si $x_1 = f^{-1}(x)$ y $x_2 = f^{-1}(y)$ entonces $f(x_1x_2^{-1}) = f(x_1)f(x_2)^{-1} = xy^{-1}$ y eso nos dice que $x_1x_2^{-1} \in f^{-1}(H')$.
+
+2. Si $f$ es monomorfismo y tomo $x \in Ker(f)$ entonces $f(x) = 1$ pero siempre $f(1) = f(1 \cdot 1) = f(1)f(1)$ de donde $f(1) = 1$ pero entonces $x = 1$, con lo que $Ker(f) = \{1\}$.
+
+Si $Ker(f) = \{1\}$ entonces $f$ es inyectiva ya que si $f(x) = f(y)$ entonces $f(x)f(y)^{-1} = f(xy^{-1}) = 1$ de donde $xy^{-1} \in Ker(f)$ y por tanto $xy^{-1} = 1$ de donde $x = y$.
+
+Por otro lado la equivalencia para el epimorfismo es la propia definición de sobreyectividad.
+\end{proof}
+
+\subsection{Retículo de subgrupos de un grupo.}
+
+\begin{definition}[Retículo de subgrupos]
+Recordemos que un retículo es un conjunto ordenado en el que cualquier par de elementos tiene supremo e ínfimo.
+
+Si G es un grupo, denotaremos por $Sub(G) = \{H : H$ es un subgrupo de G$\}$. Se verifica que $Sub(G)$ tiene estructura de retículo y está ordenado por la relación de inclusión.
+\end{definition}
+
+\begin{proposition}[Ínfimo y supremo en el retículo de subgrupos]
+1. Si $\{H_i\}_{i \in I}$ es una familia de subgrupos de un grupo G entonces $\cap_{i \in I} H_i$ es un subgrupo de G.
+
+2. Si $H_1,H_2 \in Sub(G)$ entonces $inf\{H_1,H_2\} = H_1 \cap H_2$ y $sup\{H_1,H_2\} = \cap_{K \in Sub(G), H_i \le K \, i = 1,2} K$, esto es, el ínfimo es el heredado de la relación de orden de las partes de un conjunto y el supremo es la intersección de los subgrupos de G que contienen a $H_1$ y a $H_2$.
+\end{proposition}
+
+\begin{proof}
+Utilizamos el criterio de subgrupo teniendo en cuenta que como $ 1 \in \cap_{i \in I} H_i$ entonces $\cap_{i \in I} H_i$ es no vacía.
+
+Si $H_1,H_2 \in Sub(G)$, claramente, al ser $H_1 \cap H_2$ un subgrupo debe ser el ínfimo pues es heredado de la relación de orden de las partes de un conjunto. Por otro lado, la intersección dada por $\cap_{K \in Sub(G), H_i \le K \, i = 1,2} K$ es no vacía ya que $H_1 \le G$ y $H_2 \le G$. Veamos que en efecto es el supremo.
+
+Claramente, $H_1 \le \cap K$ y $H_2 \le \cap K$. Por otro lado, si $L \in Sub(G)$ tal que $H_1 \le L$ y $H_2 \le L$ entonces L está en la lista de subgrupos intersecados y por tanto $\cap K \le L$.
+\end{proof}
+
+\begin{example}[La unión de subgrupos no tiene por qué ser un subgrupo]
+En $D_4$ consideramos $H_1 = \{1,s\} \le D_4$ y $H_2 = \{1,rs\} \le D_4$ pero 
+$H_1 \cup H_2 = \{1,s,rs\} \nleq D_4$
+
+De hecho, si tengo dos subgrupos $H,K \le G$ entonces $H \cup K \le G \iff H \subseteq G$ o $K \subseteq G$.
+\end{example}
+
+La fórmula que me hemos dado para el supremo de subgrupos es muy poco práctica. Esto motiva las siguientes definiciones.
+
+\subsection{Producto de subgrupos.}
+
+\begin{definition}[Producto de subgrupos]
+Sea G un grupo, X e Y subconjuntos no vacíos de G. Entonces el producto de X e Y es
+$$XY = \{xy:x \in X,y \in Y\}$$
+\end{definition}
+
+\begin{proposition}[Teorema del producto (Ledermann)]\label{theorem:teorema-producto}
+Sean $H,K$ subgrupos de un grupo G. Entonces:
+
+HK es un subgrupo de G $\iff HK = KH$
+en cuyo caso $H \lor K = HK$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+Una forma de generalizar el teorema del producto es hacer infinitos productos con lo que se elimina la hipótesis de conmutación.
+
+\begin{proposition}
+Sean $H,K$ subgrupos de un grupo G. Entonces $H \lor K = \{h_1k_1...h_rk_r: h_i \in H,k_i \in K,r \ge 1\}$
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Subgrupo generado por un conjunto.}
+
+\begin{definition}[Subgrupo generado por un conjunto]
+Sea G un grupo y X un subconjunto no vacío de G. Definimos el subgrupo de G generado por X y denotado por $<X>$ como el menor subgrupo de G que contiene a X, esto es, 
+$<X> = \cap_{K \in Sub(G),X \subseteq K} K$.
+\end{definition}
+
+\begin{definition}[Conjunto generador de un grupo]
+Sea G un grupo y X un subconjunto no vacío de G. Si $G = <X>$ diremos que X es un conjunto de generadores de G.
+\end{definition}
+
+Este definición permite entender mejor la noción de supremo, en efecto, si $H,K$ son subgrupos de G entonces $H \lor K = \cap_{T \le G, H,K \le T} T = \cap_{T \le G, H \cup K \subseteq T} T = <H \cup K>$, o sea, que el supremo de dos subgrupos es el subgrupo generado por su unión.
+
+\begin{proposition}[Expresión del subgrupo generado como palabras]
+Sea X un subconjunto no vacío de un grupo G. Entonces $<X> = \{x_1^{n_1}...x_r^{n_r}:x_i \in X,n_i \in \mathbb{Z},r \ge 1\}$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+Sea X un subconjunto no vacío de un grupo finito G. $<X> = \{x_1^{n_1}...x_r^{n_r}:x_i \in X,n_i \ge 0,r \ge 1\}$
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}[Subgrupo cíclico generado por un elemento]
+Sea G un grupo. Si $X = \{a\}$ entonces $<X> = <a>$ y lo llamaremos el subgrupo cíclico generado por a. Claramente $<a> = {a^n : n \in \mathbb{Z}}$ y en el caso en que G sea finito $<a> = {a^n : n \ge 0}$
+\end{definition}
+
+\begin{definition}[Grupo cíclico]
+Sea G un grupo. Si $X = \{a\}$ es un conjunto de generadores de G entonces $G = <a>$ y diremos que G es un grupo cíclico.
+\end{definition}
+
+\begin{example}
+1. $\mathbb{Z} = <1> = <-1>$ teniendo en cuenta que la operación es la suma. De hecho veremos más adelante que todo grupo cíclico infinito es isomorfo a $\mathbb{Z}$.\\
+2. $D_n = <r,s>$. \\
+3. $S_n = <X>$ donde $X = \{(ij):1 \le i,j \le n\}$
+\end{example}
+
+\subsection{Teorema de Lagrange.}
+
+\begin{definition}
+Si G es un grupo, H es un subgrupo de G y $x \in G$ definimos $xH = \{xh:h \in H\}$ y $Hx = \{hx:h \in H\}$.
+
+Diremos que dos elementos $x,y \in G$ están relacionados por la izquierda si $y \in xH$ o equivalentemente $x \in yH$, dicho de otro modo, $xy^{-1} \in H$ o bien $y^{-1}x \in H$. Lo denotaremos por $x \sim_{I} y$.
+
+Diremos que dos elementos $x,y \in G$ están relacionados por la derecha si $y \in Hx$ o equivalentemente $x \in Hy$, dicho de otro modo, $xy^{-1} \in H$ o bien $yx^{-1} \in H$. Lo denotaremos por $x \sim_{D} y$.
+
+Se comprueba fácilmente que estas relaciones son de equivalencia y que la clase de equivalencia de un elemento x por la izquierda es xH y por la derecha es Hx.
+
+Al conjunto de las clases de equivalencia por la izquierda lo denotaremos por $G/H := \{xH : x \in G \}$ y al conjunto de las clases de equivalencia por la derecha lo denotaremos por $H/G := \{Hx : x \in G \}$.
+\end{definition}
+
+\begin{proposition}
+1. Las clases de equivalencia forman una partición de G. Además, se tiene que $xH = yH \iff x \sim_{I} y$ y $Hx = Hy \iff x \sim_{D} y$. \\
+2. Existen biyecciones $f:H \rightarrow xH$ y $g:H \rightarrow Hx$ para cualquier $x \in G$. Existe una biyección $\lambda:G/H \rightarrow H/G$. En particular, el dominio y el codominio de estas biyecciones tienen el mismo número de elementos.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}[Índice de un subgrupo de un grupo]
+Sea G un grupo finito y H un subgrupo de G. Definimos el índice de H en G como el número de clases laterales a izquierda o derecha por la relación equivalencia anterior. Esto es, $[G:H] = |G/H| = |H/G|$. En otras palabras el índice es el número de partes de la partición inducida por H.
+\end{definition}
+
+\begin{theorem}[Teorema de Lagrange]
+Sea G un grupo finito y $H \le G$ entonces $|G| = [G:H]|H|$
+\end{theorem}
+
+\begin{proof}
+Pongamos $G = \sum_{i=1}^{[G:H]} x_iH$ donde entendemos el símbolo $\sum$ como suma disjunta y $x_i$ son representantes de las clases de equivalencia por la izquierda. Entonces tomando órdenes $|G| = \sum_{i=1}^{[G:H]} |x_iH| =  \sum_{i=1}^{[G:H]} |H| = [G:H]|H|$.
+\end{proof}
+
+\begin{corollary}
+Si G es un grupo finito y $H \le G$ entonces el orden de H divide al orden de G. 
+\end{corollary}
+
+\subsection{Orden de un elemento.}
+
+\begin{definition}[Orden de un elemento]
+Sea G un grupo y $a \in G$. Definimos el orden de a como 
+$ord(a) = 
+\begin{cases}
+min\{r \ge 1:a^r = 1	\} & si \, \exists r \ge 1 : a^r = 1 \\
+\infty & en \, otro \, caso
+\end{cases}$
+
+Claramente, si G es finito el orden de sus elementos es finito.
+\end{definition}
+
+\begin{proposition}[Otra definición del orden de un elemento]
+El orden de un elemento es igual al orden del subgrupo que genera si es finito y es infinito si el subgrupo generado es infinito.
+\end{proposition}
+
+\begin{proof}
+Veamos en primer lugar que si $ord(a) = n$ entonces $<a> = \{1,a,...,a^{n-1}\}$.
+
+Por definición $<a> = \{a^r:r \in \mathbb{Z}\}$ y dividiendo r entre n tendremos $r = nq + s$ donde $0 \le s < n$. Resulta que $a^r = a^s \in \{1,a,...,a^{n-1}\}$. Luego hemos demostrado que $\{a^r:r \in \mathbb{Z}\} \subseteq \{1,a,...,a^{n-1}\}$. Y como la otra inclusión es evidente hemos demostrado la igualdad. Y más adelante veremos que dos grupos cíclicos del mismo orden son isomorfos.
+
+Si $ord(a) = \infty$ entonces el grupo cíclico generado por a es isomorfo al grupo de los números enteros con la suma $<a> = \{a^r:r \in \mathbb{Z}\} \cong \mathbb{Z}$ mediante el isomorfismo $f:\mathbb{Z} \rightarrow <a>$ tal que $f(n) = a^n$.
+\end{proof}
+
+\begin{corollary}
+Si G es un grupo finito entonces para cualquier $a \in G$ se verifica que $ord(a) | |G|$.
+\end{corollary}
+
+\begin{proposition}[Propiedades del orden de un elemento]
+Suponiendo que el orden de a es finito: \\
+1. $a^m = 1$ con $m \ge 1 \iff ord(a) | m$ \\
+2. $ord(a^r) = \frac{ord(a)}{mcd(ord(a),r)}$ \\
+3. $<a>$ tiene $\phi(ord(a))$ generadores distintos. \\
+En cualquier caso: \\
+4. El orden es un invariante por isomorfismo. Esto es, si $f:G \rightarrow G'$ es un isomorfismo entonces $ord(a) = ord(f(a))$ para cualquier a.
+\end{proposition}
+\begin{proof}
+Sea $n = ord(a)$,
+
+(1) $\Rightarrow$ Supongamos que $a^m = 1$ y si escribimos $m = nq + r$ con $0 \le r < n$ entonces $1=a^m = a^{nq}a^r = a^r$ y necesariamente debe ser $r = 0$ ya que si no tendríamos un entero menor que n que como potencia de a da uno en contradicción con la definición de orden de un elemento. Luego $m = nq$ y por tanto $n | m$
+
+$\Leftarrow$ Si $n|m$ entonces $m = nq$ y entonces $a^m = a^{nq} = (a^n)^q = 1$.
+
+(2) Gracias a (1) como $(a^r)^{\frac{n}{mcd(n,r)}} = (a^n)^{\frac{r}{mcd(n,r)}} = 1$ entonces $ord(a^r) | \frac{n}{mcd(n,r)}$. 
+
+Por otro lado, supongamos que $(a^r)^m = 1$ y veamos que entonces $\frac{n}{mcd(n,r)} | m$. Claramente $n | rm$ luego $rs = nt$ para cierto t y entonces $\frac{r}{mcd(n,r)}m = \frac{n}{mcd(n,r)}t$ luego $\frac{n}{mcd(n,r)} | \frac{r}{mcd(n,r)}m$ y como $mcd\left(\frac{r}{mcd(n,r)},\frac{n}{mcd(n,r)}\right) = 1$ por el lema de Euclides necesariamente $\frac{n}{mcd(n,r)} | m$. Y concluimos que $\frac{n}{mcd(n,r)} | ord(a^r)$.
+
+(3) Utilizando (2) $ord(a^r) = \frac{n}{mcd(n,r)}$ y por tanto si $mcd(n,r) = 1$  se verificará que $<a> = <a^r>$ ya que ambos conjuntos tienen el mismo número de elementos distintos y están escogidos de la misma familia. Por tanto se trata de determinar cuantos valores r verifican que $mcd(n,r) = 1$, esto es precisamente $\phi(n)$.
+
+(4) Supongamos para empezar que n es finito. $f(a)^n=f(a^n)=f(1)=1$ luego $n |ord(f(a))$ y sea ahora cualquier m tal que $f(a)^m = 1$ entonces $1 = f(a)^m = f(a^m)$ y como f es inyectiva necesariamente $a^m = 1$ por (1) debe ser $n | m$ luego $ord(f(a)) | n$ y por tanto $n = ord(f(a))$.
+
+Supongamos ahora que n es infinito y supongamos por reducción al absurdo que existe una potencia m tal que $f(a)^m = 1$ entonces $f(a^m) = 1$ y por la inyectividad $a^m = 1$ en contradicción con el hecho de que el orden de a es infinito.
+\end{proof}
+
+\begin{proposition}[Cálculo del orden de permutación]
+1. Sean $\alpha,\beta \in S_n$ dos permutaciones disjuntas entonces $ord(\alpha\beta) = mcm(ord(\alpha),ord(\beta))$.\\
+2. Dado $\alpha \in S_n$ con $\alpha \neq 1$ entonces $ord(\alpha) = mcm(longitudes \, de \, los \, ciclos \, disjuntos \, en \, que \, descompone \, \alpha)$.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Clasificación de los grupos cíclicos y descripción del retículo de subgrupos.}
+
+\begin{theorem}[Teorema de clasificación]
+1. Si H y H' son dos grupos cíclicos del mismo orden entonces son isomorfos.\\
+2. Si G es un grupo cíclico generado por a entonces si $ord(a) = n$ entonces $G \cong (\mathbb{Z}_n,+)$ y si $ord(a) = \infty$ entonces $G \cong (\mathbb{Z},+)$. Al grupo cíclico de orden n lo denotaremos $C_n = <x:x^n = 1>$.\\
+3. Si G es un grupo de orden $|G| = p$ con p un número primo entonces $G \cong C_p$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+Obsérvese también en este momento que los grupos cíclicos son abelianos.
+
+\begin{theorem}[Descripción del retículo de subgrupos de un grupo cíclico]
+1. Si G es grupo cíclico infinito entonces $G \cong \mathbb{Z}$ y $Sub(\mathbb{Z}) = \{n\mathbb{Z}:n \ge 0\}$ y la relación de inclusión viene dada por $m\mathbb{Z} \subseteq n\mathbb{Z} \iff n|m$. \\
+Supongamos que G es un grupo cíclico finito es decir es de la forma $C_n = <x:x^n = 1>$.\\
+2. Si d es divisor de n entonces $<x^{n/d}>$ es un subgrupo de $C_n$ cíclico de orden d. \\
+3. Si H es un subgrupo de $C_n$ no trivial y $s = min\{r \ge 1:x^r \in H\}$ entonces $s|n$ y $H = <x^s>$. \\
+4. (Identificación de subgrupos) Denotemos por $Div(n)$ a los divisores de n. La aplicación $$f:Div(n) \rightarrow Sub(C_n)$$ tal que $$d \mapsto <x^{n/d}>$$ es una biyección.  \\
+5. (Relación de inclusión) Sean $d_1,d_2 \in Div(n)$. $$<a^{n/d_1}> \; \le \; <a^{n/d_2}> \iff d_1|d_2$$ 
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\newpage
+\section{Tema 4: grupos cociente, teoremas de isomorfía y producto directo de grupos}
+
+\subsection{Subgrupos normales}
+
+\begin{definition}[Subgrupo normal]
+Sea H un subgrupo de un grupo G. N es normal en G si $aN = Na \, \forall a \in G$ en cuyo caso escribiremos $H \unlhd G$.
+\end{definition}
+
+\begin{example}
+1. Todos los subgrupos de un grupo abeliano son normales.\\
+2. Los subgrupos impropios de un grupo son normales.\\
+3. $A_3 \trianglelefteq S_3$ pero $<(12)> \ntrianglelefteq S_3$.\\
+4. El subgrupo de las rotaciones de $D_3$ es normal en $D_3$.
+\end{example}
+
+\begin{lemma}[Conjugado de un subgrupo por un elemento]
+Sea H un subgrupo de un grupo G. Para cada $a \in G$ el conjunto $aHa^{-1} = \{axa^{-1}:x \in H\}$ es un subgrupo de G que llamaremos el conjugado de H por el elemento a. 
+\end{lemma}
+\begin{proof}
+Utilizaremos el criterio \ref{proposition:criterio-subgrupo}. En efecto, dados dos elementos de $aHa^{-1}$ sean $ah_1a^{-1}$, $ah_2a^{-1}$ entonces $(ah_1a^{-1})(ah_2a^{-1})^{-1} = ah_1a^{-1}ah_2^{-1}a^{-1} = ah_1h_2^{-1}a^{-1}$ y como $H$ es un subgrupo, se verifica que $h_1h_2^{-1} \in H$ de donde $ah_1h_2^{-1}a^{-1} \in aHa^{-1}$.
+\end{proof}
+
+\begin{theorem}[Condición de normalidad]\label{theorem:criterio-normalidad}
+Sea N un subgrupo de un grupo G. $N \unlhd G \iff aNa^{-1} = N  \, \forall a \in G \iff aNa^{-1} \le N \, \forall a \in G$ esto es, un subgrupo es normal si contiene a todos sus conjugados.
+\end{theorem}
+\begin{proof}
+La clave de esta demostración es darse cuenta que la operación "multiplicar por un elemento de un grupo" mantiene cardinalidades ya que la aplicación $f:N \rightarrow aN$ tal que $f(n) = an$ es biyectiva.
+
+$\Rightarrow$ Si $N \unlhd G$ entonces por definición $aN = Na \, \forall a \in G$. Por tanto, $aNa^{-1} = Naa^{-1} = N$. Esto implica que $aNa^{-1} \le N \, \forall a \in G$.
+
+$\Leftarrow$ Supongamos que $aNa^{-1} \le N \, \forall a \in G$. Como $aNa^{-1}$ tiene el mismo cardinal que $N$ y $aNa^{-1} \le N$, se tiene la igualdad es decir que $aNa^{-1} = N \, \forall a \in G$. Asumiendo la igualdad, entonces $aN = aa^{-1}Na = Na$ de donde se deduce la normalidad.
+\end{proof}
+
+\begin{example}
+1. Si $f:G \rightarrow G'$ es un homomorfismo entonces $Ker(f) \trianglelefteq G$.
+
+En efecto, sea $a \in G$ y $n \in Ker(f)$ entonces $ana^{-1} \in Ker(f)$ ya que $f(ana^{-1}) = f(a)f(n)f(a^{-1}) = f(a)f(a^{-1}) = f(aa^{-1}) = f(1) = 1$.
+
+2. $K = \{1,(12)(34),(13)(24),(14)(23)\} \trianglelefteq S_4$.
+
+Si $\alpha \in S_4$ y $\beta \in K$ entonces por la proposición \ref{proposition:propiedades-ciclos} $\alpha \beta  \alpha^{-1} = \alpha (ij)(kl) \alpha^{-1} =\alpha (ij) \alpha^{-1} \alpha (kl) \alpha^{-1} = (\alpha(i) \alpha(j))(\alpha(k) \alpha(l)) \in K$ ya que se tiene en cuenta que como  $i \neq j \neq k \neq l$ entonces las imágenes también son distintas y que los ciclos disjuntos conmutan.
+\end{example}
+
+\begin{proposition}[Condición de normalidad para subgrupos finitamente generados]
+Si $N = <x_1,...,x_r>  \le G$ entonces $N \unlhd G \iff ax_ia^{-1} \in N \, \forall a \in G$ con $i = 1,...r$.
+\end{proposition}
+\begin{proof}
+$<X> = \{x_1^{n_1}...x_r^{n_r}:x_i \in X,n_i \in \mathbb{Z},r \ge 1\}$
+
+$\Rightarrow$ Por el criterio \ref{theorem:criterio-normalidad} $aNa^{-1} \le N \, \forall a \in G$ de donde claramente $ax_ia^{-1} \in N \, \forall a \in G$.
+
+$\Leftarrow$ Supongamos que $ax_ia^{-1} \in N \, \forall a \in G$ y veamos que $aNa^{-1} \le N \, \forall a \in G$. Como $N = <x_1,...,x_r>$ podemos tomar un elemento genérico de $N$ sea $x_1^{n_1}...x_r^{n_r}$ y demostrar que el producto $ax_1^{n_1}...x_r^{n_r}a^{-1} \in N$.
+
+Para empezar, si $x_i \in \{x_1,...,x_r\}$ y $n \in \mathbb{Z}$ entonces $ax_i^na^{-1} \in N$ ya que si $n$ es positivo se trata de una simple inducción en $n$ y si $n$ es negativo entonces considero que $ax_i^na^{-1} = a(x_i^{-n})^{-1}a^{-1} = (ax_i^{-n}a^{-1})^{-1}$ y como $ax_i^{-n}a^{-1} \in N$ entonces $(ax_i^{-n}a^{-1})^{-1} \in N$.
+
+Ahora, como $r \ge 1$ podemos aplicar inducción para probar que $ax_1^{n_1}...x_r^{n_r}a^{-1} \in N$ para lo que basta introducir $a$ y $a^{-1}$ entre cada potencia $x_i$.
+\end{proof}
+
+\begin{example}
+$A_n \trianglelefteq S_n \, \forall n \geq 2$.
+
+Basta utilizar el hecho de que $A_n$ está generado por los ciclos de longitud tres y que $\alpha (ijk) \alpha^{-1} = (\alpha(i)\alpha(j)\alpha(k))$.
+\end{example}
+
+\begin{theorem}[Extensión del teorema de correspondencia entre subgrupos y homomorfismos]
+Sea $f: G_1 \rightarrow G_2$ un homomorfismo.\\
+1. Si $H_2 \trianglelefteq G_2$ entonces $f^{-1}(H_2) \trianglelefteq G_1$. \\
+2. Si $H_1 \trianglelefteq G_1$ y f es epimorfismo entonces $f(H_1) \trianglelefteq G_2$. \\
+Como consecuencia la normalidad de un subgrupo es invariante por epimorfismo.
+\end{theorem}
+\begin{proof}
+Usemos el criterio \ref{theorem:criterio-normalidad}. 
+
+1. Sea $g \in G_1$ y $h \in f^{-1}(H_2)$. Veamos que $ghg^{-1} \in f^{-1}(H_2)$. En efecto, como $f(ghg^{-1}) = f(g)f(h)f(g)^{-1} \in H_2$ ya que por hipótesis $f(h) \in G_2$ y $f(g) \in G_2$ y $H_2 \trianglelefteq G_2$.
+
+2. Sea $h=f(h_1) \in f(H_1)$ y $g \in G_2$. Como $f$ es epimorfismo entonces existe $g_1 \in G_1$ tal que $g = f(g_1)$ entonces $ghg^{-1} = f(g_1)f(h_1)f(g_1)^{-1} = f(g_1h_1g_1^{-1}) \in f(H_1)$ ya que $H_1 \trianglelefteq G_1$.
+
+Claramente si $f$ es epimorfismo $f$ preserva hacia adelante y hacia detrás los subgrupos normales.
+\end{proof}
+
+\subsection{Grupo cociente}
+
+\begin{definition}[Grupo cociente]
+Sea G un grupo y $N \unlhd G$ y consideremos el conjunto de las clases laterales a izquierda $G/N$. Definimos el producto en dicho conjunto como $(aN)(bN) = (ab)N$. Es fácil comprobar que con esta definición $G/N$ tiene estructura de grupo y lo llamaremos grupo cociente de G por N.
+\end{definition}
+
+\begin{example}
+1. Si G es abeliano entonces G/N es abeliano para cualquier subgrupo N de G.
+\end{example}
+
+\begin{definition}[Proyección canónica]
+La aplicación $p:G \rightarrow G/N$ tal que $p(a) = aN$ es un epimorfismo llamado proyección canónica.
+\end{definition}
+
+\begin{proposition}[Retículo de subgrupos del grupo cociente]
+Sea G un grupo y $N \unlhd G$ entonces se verifica:
+
+1. Si $H \le G$ y $N \le H$ entonces $N \unlhd H$ y podemos definir el grupo cociente $H/N$ que será un subgrupo de $G/N$.\\
+2. Si $H_1,H_2$ son subgrupos tales que N es normal en $H_1$ y en $H_2$ entonces $\frac{H_1}{N} = \frac{H_2}{N} \iff H_1 = H_2$. \\
+3. Si L es un subgrupo del cociente entonces existe un único H subgrupo de G tal que N es subgrupo de H y $L = H/N$.
+
+En consecuencia $Sub(G/N) = \{\frac{H}{N}:H \in Sub(G)$ y $N \le H\}$
+\end{proposition}
+\begin{proof}
+1. Se aplica la condición de normalidad y se ve claramente que si $N \unlhd G$ entonces necesariamente es normal en todo subgrupo contenido en G. Obsérvese que esto no quiere decir que la normalidad sea transitiva es decir que $H_1 \unlhd H_2 \unlhd H_3$ no quiere decir que $H_1 \unlhd H_3$. Un buen ejemplo de esto se tiene en $D_4$ con $\{1,s\} \unlhd \{1,s,r^2,r^2s\} \unlhd D_4$ pero $\{1,s\} \ntrianglelefteq D_4$.
+
+Veamos ahora que $H/N \le G/N$ usando el criterio de subgrupo. Sean $xN,yN \in H/N$ entonces $(xN)(yN)^{-1} = (xy^{-1})N$ y ya que H es un subgrupo se verifica que $(xy^{-1})N \in H/N$.
+
+2. $\Rightarrow$ Lo hacemos por doble inclusión. En efecto, sea $x \in H_1$ entonces $xN \in H_1/N = H_2/N$ por tanto existe $y \in H_2$ tal que $xN = yN$ luego $xy^{-1} \in N \le    H_2$ luego $x \in H_2$. Análogamente se procede para la otra inclusión.
+
+$\Leftarrow$ Es evidente.
+
+3. ¿Quién puede ser el subgrupo que estamos buscando? Si entendemos el paso al cociente como 'pegar' elementos en uno solo el subgrupo que buscamos es precisamente el que al pegarse da L. La función de pegado es la famosa proyección canónica esto es: $$H:=p^{-1}(L) = \{x \in G : p(x) \in L\} = \{x \in G:xN \in L\}$$ Claramente, $N \le H$ ya que N es el elemento neutro del cociente y la igualdad se deduce por doble inclusión. La unicidad es consecuencia de 2.
+
+Por 3, $Sub(G/N) \subseteq \{\frac{H}{N}:H \in Sub(G)$ y $N \le H\}$ y por 1, se tiene la otra inclusión.
+\end{proof}
+
+\subsection{Teoremas de isomorfismo}
+
+\begin{proposition}[Teorema de factorización de un homomorfismo mediante la proyección canónica]
+Sea $f:G \rightarrow G'$ un homomorfismo de grupos y sea $N \trianglelefteq G$ con $N \le Ker(f)$ entonces existe un único homomorfismo $\bar{f}:G/N \rightarrow G'$ tal que $\bar{f} \circ p = f$. Además:
+
+(1) $\bar{f}$ es epimorfismo $\iff$ f es epimorfismo \\
+(2) $\bar{f}$ es monomorfismo $\iff N = Ker(f)$
+\end{proposition}
+\begin{proof}
+Veamos que $\bar{f}$ está bien definido. Si $aN = a'N \iff a'^{-1}a \in N \Rightarrow_{N \le Ker(f)} f(a'^{-1}a) = f(a'^{-1})f(a) = f(a')^{-1}f(a) = 1 \Rightarrow f(a) = f(a')$. Además claramente $f$ es un homomorfismo de grupos y $\bar{f} \circ p = f$.
+
+Veamos ahora la unicidad. Sea g otro homomorfismo $g:G/N \rightarrow G'$ tal que $g \circ p = f$ entonces $(g \circ p)(a) = g(aN) = f(a)$ y por tanto $g = \bar{f}$.
+
+Veamos (1). $Im(\bar{f}) = \{\bar{f}(aN):aN \in G/N\} = \{f(a):a \in G\} = Im(f)$. \\
+Veamos (2). $Ker(\bar{f}) = \{xN \in G/N :\bar{f}(xN) = f(x) = 1\} =  Ker(f)/N$ y la doble implicación se sigue del hecho de que si $\bar{f}$ es inyectiva entonces $Ker(\bar{f}) = \{1\}$ y por tanto $Ker(f) = N$ y si $Ker(f) = N$ entonces $Ker(\bar{f}) = \{1\}$ de donde $\bar{f}$ es inyectiva.
+\end{proof}
+
+El siguiente teorema nos dice que la única manera de definir un homomorfismo es llevar las clases módulo el núcleo cada una a un cierto valor distinto. 
+
+También se puede entender el teorema como que todo homomorfismo se puede imitar mediante un paso al cociente seguido de un isomorfismo. 
+
+\begin{theorem}[Primer teorema de isomorfismo]
+Sea $f:G \rightarrow G'$ un homomorfismo de grupos entonces $G/Ker(f) \cong Img(f)$ mediante el isomorfismo $aKer(f) \mapsto f(a)$.
+\end{theorem}
+\begin{proof}
+Apliquemos el teorema de factorización al epimorfismo $f:G \rightarrow Img(f)$ teniendo en cuenta que $N=Ker(f) \trianglelefteq G$ y se obtiene que la aplicación $\bar{f}:G/Ker(f) \rightarrow Img(f)$ tal que $\bar{f}(aKer(f)) = f(a)$ es el único isomorfismo.
+\end{proof}
+
+\begin{corollary}[Fórmula de las dimensiones]
+Sea $f:G \rightarrow G'$ un homomorfismo con $G$ un grupo finito entonces $|G| = |Ker(f)||Im(f)|$.
+\end{corollary}
+\begin{proof}
+Como $G/Ker(f) \cong Img(f)$ entonces $|G/Ker(f)| = \frac{|G|}{|Ker(f)|} = |Img(f)|$.
+\end{proof}
+
+La lectura adecuada del siguiente teorema indica como única condición previa para que se dé el isomorfismo la normalidad del subgrupo que es despejado por el isomorfismo.
+
+\begin{theorem}[Segundo teorema de isomorfismo o del doble cociente]
+Sea G un grupo y $N \trianglelefteq G$.\\ Sea $H \in Sub(G)$ tal que $N \le H$. Entonces:\\
+$H/N \trianglelefteq G/N \iff H \trianglelefteq G$ y en tal caso $G/H \cong \frac{G/N}{H/N}$ mediante el isomorfismo $aH \mapsto (aN)H/N$.
+\end{theorem}
+\begin{proof}
+$\Rightarrow$ Supongamos que $H/N \trianglelefteq G/N$. Para ver que $H \trianglelefteq G$ vamos a ver que es el núcleo de cierto homomorfismo.
+
+Consideremos las proyecciones canónicas p,q de G en $G/N$ y de $G/N$ en $(G/N)/(H/N)$ respectivamente de modo que la composición es $f=q \circ p:x \mapsto (xN)H/N$ y calculemos el núcleo. $$Ker(f) = \{x \in G:f(x) = H/N\} = \{x \in G:xN \in H/N\}$$ y comprobamos que este último conjunto es igual a H por doble inclusión.
+
+Claramente $H \subseteq Ker(f)$. Veamos la otra inclusión. Si $x \in Ker(f) \Rightarrow xN \in H/N$ es decir, que existe $h \in H$ tal que $xN = hN \Rightarrow h^{-1}x \in N \le H$ luego existe $h' \in H$ tal que $h^{-1}x = h' \Rightarrow x \in H$.
+
+$\Leftarrow$ Supongamos que $H \trianglelefteq G$ y usemos el criterio de normalidad (claramente $H/N \le G/N$). Dado $xN \in G/N$ consideramos $(xN)(hN)(x^{-1}N) = (xhx^{-1})N$ y por la normalidad de H en G se tiene la implicación.
+
+Finalmente, aplicando el primer teorema de isomorfismo se tiene que $G/H = G/Ker(f)  \equiv Img(f) = (G/N)/(H/N)$.
+\end{proof}
+
+La lectura adecuada del siguiente teorema indica como única condición previa para que se dé el isomorfismo la normalidad del subgrupo que divide en solitario en el grupo total.
+
+\begin{theorem}[Tercer teorema de isomorfismo]
+Sea G un grupo y $H,K \le Sub(G)$ siendo $K \trianglelefteq G$. Entonces:\\
+1. $HK = KH$ y por tanto $HK \in Sub(G)$ y $K \trianglelefteq HK$.\\
+2. $H \cap K \trianglelefteq H$.\\
+3. $H/H \cap K \cong HK/K$.
+\end{theorem}
+\begin{proof}
+1. Sea $x \in HK$ entonces $x = hk$ con $h \in H, k \in K$ y al ser $K \trianglelefteq G$ se tiene la igualdad $hK = Kh$. Por tanto, existirá un $k' \in K$ tal que $x = k'h$ de donde $x \in KH$. La otra inclusión es análoga y se tiene la igualdad $HK = KH$.
+
+Por el teorema \ref{theorem:teorema-producto}, se tiene que $HK \in Sub(G)$ y claramente $K \trianglelefteq HK$. 
+
+2. Demostraremos este apartado mediante el uso de la aplicación $g=p \circ i: H \rightarrow G/K$ tal que $g(x) = xK$. Por tanto, $$Ker(g) = \{h \in H:hK = K\} = \{h \in H: h \in K\} = H \cap K$$ Además, $$Img(g) = \{g(h):h \in H\} = \{hK: h \in H\} = HK/K$$ Obsérvese que como K no está incluído en H no se tiene H/K sino HK/K. Esto es así porque HK es el supremo de H y K y por tanto los contiene a ambos. Dado un h puedo arrancar un k de la K.
+ 
+3. Es consecuencia del primer teorema de isomorfismo.
+\end{proof}
+
+\subsection{Producto directo}
+
+\subsubsection{Producto directo de grupos}
+
+\begin{definition}[Producto directo de grupos]
+Dados $G_1,...,G_n$ grupos su producto directo es el grupo $G_1 \times ... \times G_n = \{(x_1,...,x_n):x_i \in G_i,1 \le i \le n\}$ con la operación producto componente a componente. Lo denotaremos por $\prod_{k=1}^{n} G_k$.
+\end{definition}
+
+\begin{definition}[Proyecciones e inyecciones canónicas]
+La proyección canónica sobre la i-ésima componente es la aplicación $p_i:\prod_{k=1}^{n} G_k \rightarrow G_i$ tal que $p_i((x_1,...,x_n)) = x_i$. Claramente, las proyecciones canónicas son epimorfismos.
+
+La inyección canónica desde la j-ésima componente es la aplicación $u_j:G_j \rightarrow \prod_{k=1}^{n} G_k$ tal que $u_j(x) = (1,...,x,...,1)$ donde la x está situada en el j-ésimo lugar. Claramente, las inyecciones canónicas son monomorfismos.
+\end{definition}
+
+Obsérvese que si $K_i \le G_i$ entonces $\prod_{i=1}^{n} K_i \le \prod_{i=1}^{n} G_i$.
+
+\begin{example}[Un subgrupo del producto que no es producto de subgrupos]
+En $\mathbb{Z} \times \mathbb{Z}$, la diagonal $\{(x,x):x \in \mathbb{Z}\}$ es un subgrupo del producto que no es producto de subgrupos.
+\end{example}
+
+\begin{proposition}[Factores del producto]
+Sean $G_1,...,G_n$ grupos y $G = \prod_{k=1}^{n} G_k$. \\
+1. $G_j \cong Img(u_j)$ e identificando $G_j$ con dicha imagen $G_j \trianglelefteq G$ y $G/G_j \cong \prod_{k=1,k \neq j}^{n} G_k$. \\
+2. $\prod_{k=1,k \neq j}^{n} G_k \cong Ker(p_j)$ e identificando $\prod_{k=1,k \neq j}^{n} G_k$ con $Ker(p_j)$ tendríamos $\prod_{k=1,k \neq j}^{n} G_k \trianglelefteq G$.\\ 
+3. Con las identificaciones dadas en 1., si $x \in G_i$ e $y \in G_j$ con $i \neq j$ entonces $xy = yx$.
+\end{proposition}
+\begin{proof}
+1. Como $u_j$ es un monomorfismo es claro que $Img(u_j) \cong G_j$. Considerando el homomorfismo $\phi:G \rightarrow G_1 \times ... \times G_{j-1} \times G_{j+1} \times ... \times G_n$ tal que $\phi((g_1,...,g_n)) = (g_1,...,g_{j-1},g_{j+1},...,g_n)$ se tendrá que $Ker(\phi) = G_j$ luego $G_j$ es normal en G. Por el primer teorema de isomorfismo $G/G_j = \prod_{k=1,k \neq j}^{n} G_k$.
+
+2. Obsérvese que $Ker(p_j) = \{(g_1,...,g_{j-1},1,g_{j+1},...,g_n):g_j \in G_j \, \forall j \neq i\}$ y la aplicación $\phi:Ker(p_j) \rightarrow \prod_{k=1,k \neq j}^{n} G_k$ tal que $\phi((g_1,...,1,...,g_n)) = (g_1,...,g_n)$.
+
+3. $xy = (1,...,1,g_i,1,...,g_j,...,1) = yx$.
+\end{proof}
+
+En resumen, tenemos que formalmente se identificará $$G_j = \{(1,...,g...,1):g \in G_i\}$$ y $$\prod_{k=1,k \neq j}^{n} G_k = \{(g_1,...,1,...,g_n):g_i \in G_i\}$$
+
+\subsubsection{Producto directo de homomorfismos}
+
+\begin{definition}
+Sean $f_i:G_i \rightarrow H_i$ homomorfismos de grupos con $i=1,...,n$. El homomorfismo producto es $$\prod f_i:\prod_{i=1}^{n} G_i \rightarrow \prod_{i=1}^{n} H_i$$ tal que $(x_1,...,x_n) \mapsto (f_1(x_1),...,f_n(x_n))$.
+\end{definition}
+
+Sean $p_i,q_i$ las proyecciones desde los productos $\prod_{i=1}^{n} G_i$ y $\prod_{i=1}^{n} H_i$ y consideremos el siguiente diagrama:
+
+$$
+\begin{matrix}
+\prod_{i=1}^{n} G_i&\stackrel{\prod f_i}{\longrightarrow}&\prod_{i=1}^{n} H_i\\
+\downarrow{p_i}&&\downarrow{q_i}\\
+G_i&\stackrel{f_i}{\longrightarrow}&H_i
+\end{matrix}
+$$
+
+\begin{proposition}[Propiedad universal del homomorfismo producto]
+1. $\prod f_i$ es el único homomorfismo que hace conmutativo al diagrama anterior es decir que se da $q_i(\prod f_i) = f_i p_i$ con $i=1,...,n$.\\
+2. $\prod f_i$ es monomorfismo (respectivamente epimorfismo, isomorfismo) $\iff f_i$ es monomorfismo (respectivamente epimorfismo, isomorfismo) $\forall i=1,...,n$.
+\end{proposition}
+
+Consideremos ahora el monomorfismo $$\phi:Aut(G_1) \times ... \times Aut(G_n) \rightarrow Aut(G_1 \times ... \times G_n)$$ tal que $$(f_1,...,f_n) \mapsto \prod_{i=1}^{n} f_i$$.
+
+\begin{theorem}[Caracterización del producto directo]
+Sean $G_1,...,G_n$ grupo finitos.
+
+1. $|\prod_{i=1}^{n} G_i| = \prod_{i=1}^{n} |G_i|$.\\
+2. $ord((x_1,...,x_n)) = mcm(ord(x_1),...,ord(x_n))$.\\
+Supongamos ahora que $mcd(|G_i|,|G_j|) = 1$ $\forall i \neq j$ entonces:\\
+3. Si $G_i$ es un grupo cíclico $\implies \prod_{i=1}^{n} G_i$ es cíclico.\\
+4. Si $L \le \prod_{i=1}^{n} G_i$ entonces existen $K_i \le G_i$ tal que $L = \prod_{i=1}^{n} K_i$.\\
+5. $\prod_{i=1}^{n} Aut(G_i) \cong Aut(\prod_{i=1}^{n} G_i)$ y el isomorfismo es $\phi$.
+\end{theorem}
+
+\subsubsection{Producto directo interno}
+
+Sea $G$ un grupo, $H,K \le G$ y $\lambda:H \times K \rightarrow G$ tal que $\lambda((h,k)) = hk$.
+
+En cualquiera de las situaciones del siguiente teorema diremos que $G$ es producto directo interno de $H$ y $K$.
+
+\begin{theorem}[Condiciones de producto directo interno]
+Son equivalentes:\\
+1. $\lambda$ es un isomorfismo.\\
+2. $H,K \trianglelefteq G$, $HK = G$ y $H \cap K = \{1\}$.\\
+3. $hk = kh$ $\forall k \in K$ y $h \in H$, $G = H \lor K$ y $H \cap K = \{1\}$.\\
+4. $hk = kh$ $\forall k \in K$ y $h \in H$ y además para cada $g \in G$ $\exists  ! h \in H, k \in K$ tales que $g = hk$
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+Generalizamos para n subgrupos.
+
+Tomados $H_1,...H_n \le G$ consideramos el homomorfismo $\phi:\prod H_i \rightarrow G$ tal que $(h_1,...,h_n) \mapsto h_1...h_n$.
+
+En cualquiera de las situaciones del siguiente teorema diremos que $G$ es producto directo interno de $H_1$ ... $H_n$.
+
+\begin{theorem}[Condiciones de producto directo interno]
+Son equivalentes:
+
+1. $\phi$ es un isomorfismo.\\
+2. $H_i \trianglelefteq G$ $\forall i = 1,...,n$, $\prod_{i=1}^{n} H_i = G$ y $(H_1...H_{i-1}) \cap H_i = \{1\}$ $\forall i = 2,...,n$.\\
+3. $h_i h_j = h_j h_i$ $\forall h_i \in H_i$ $\forall h_j \in H_j$ $\forall i \neq j$, $G = H_1 \lor ... \lor H_n$,$(H_1...H_{i-1})\cap H_i$ $\forall i=2,...,n$.\\
+4. $h_ih_j = h_jh_i$ $\forall h_i \in H_i$ $\forall h_j \in H_j$ $\forall i \neq j$, tal que para cada $g \in G$ $\exists ! h_1 \in H_1,...,h_n \in H_n$ tal que $g = h_1...h_n$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\newpage
+
+\section{Grupos solubles}
+
+\subsection{Grupos simples y series normales}
+
+\begin{definition}[Serie normal y refinamiento]
+Dado un grupo G, una serie normal de G es una sucesión finita de grupos de la forma $$\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_n = G \;\;\;(1)$$ A los grupos $H_i$ se les llama términos de la serie y a los cocientes $H_i/H_{i-1}$ se les llama factores de G.
+
+La serie se dice propia si las inclusiones son todas estrictas, esto es, si $H_i \propernormal H_{i+1} \, i = 0,1,...,n-1$. En este caso diremos que la longitud  de la serie es n (esto es, $G$ no se cuenta).
+
+Supongamos una serie normal $$\{1\} = K_0 \trianglelefteq K_1 \trianglelefteq ... \trianglelefteq K_m = G\;\;\;(2)$$ Diremos que la serie (1) es un refinamiento de la serie (2) si $m \le n$ y además todos los grupos de (2) aparecen en (1) (esto es, si la serie (1) es más larga que la serie (2)). El refinamiento se dirá propio si $m < n$.
+\end{definition}
+
+\begin{example}
+1. $\{1\} \trianglelefteq A_4 \trianglelefteq S_4$\\
+2. $\{1\} \trianglelefteq K \trianglelefteq S_4$\\
+3. $\{1\} \trianglelefteq K \trianglelefteq A_4 \le S_4$ refina a las dos series anteriores.\\
+4. $\{1\} \trianglelefteq C_2 \trianglelefteq K \trianglelefteq A_4 \trianglelefteq S_4$ donde $C_2$ no es normal en $A_4$ ni en $S_4$. De hecho, no hay más refinamientos de esta.
+\end{example}
+
+\begin{definition}[Serie de composición]
+Una serie de composición de un grupo G es una serie normal, propia y que no admite refinamientos propios. Los factores de una serie de composición se llaman factores de composición de G (ya que sólo dependen de G).
+\end{definition}
+
+(Motivar la definición de grupo simple como en 168 del libro de la UNAM).
+
+\begin{definition}[Grupo simple]
+Un grupo G es simple si $G \neq \{1\}$ y no tiene subgrupos normales propios.
+\end{definition}
+
+Claramente, la noción de grupo simple se mantiene por isomorfismo.
+
+\begin{example}
+1. Si $|G| = p$ primo entonces G es simple ya que ni siquiera tiene subgrupos propios. \\
+2. Si G es abeliano, G es simple $\iff G \cong C_p$ con p un número primo.
+
+En efecto, 
+
+$\Leftarrow$ Si $G \cong C_p$ con p primo los subgrupos de G son los impropios. \\
+$\Rightarrow$ Si G es abeliano y simple para empezar G no es trivial por definición y entonces podemos tomar $x \in G \setminus \{1\}$ y como G es abeliano el subgrupo $<x>$ será normal en G. Como G es simple, necesariamente $G = <x>$, luego G es cíclico.
+
+Faltaría por ver que G es de orden finito. Para ello consideremos el orden de x. Si fuera infinito entonces $G \cong \mathbb{Z}$ pero $\mathbb{Z}$ no es simple porque tiene infinitos subgrupos y la simplicidad es un invariante por isomorfismo.
+
+Además necesariamente el orden del grupo debe ser primo. Pues si no fuera primo existirían subgrupo propios según el teorema que describe el retículo de subgrupos de un grupo cíclico y como el grupo es abeliano se tendría que serían normales.
+\end{example}
+
+El siguiente teorema caracteriza a los grupos simples como los ladrillos básicos de construcción de las series de composición al modo de los números primos en $\mathbb{Z}$.
+
+\begin{theorem}[Condición de factores simples]
+Sea $\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_n = G$ una serie normal. 
+
+La serie es de composición $\iff H_i/H_{i-1}$ son simples para todo $i = 1,...,n$.
+\end{theorem}
+\begin{proof}
+$\Rightarrow$ Supóngase que la serie es de composición y supongamos por reducción al absurdo que existe un i tal que $H_i/H_{i-1}$ no es simple. Por tanto existiría un subgrupo normal propio $K/H_{i-1}$ que por el segundo teorema isomorfismo implicaría que $H_{i-1} \propernormal K \propernormal H_{i}$. Ahora bien, por ser una serie de composición no puede admitir refinamientos propios y llegamos a una contradicción.
+
+$\Leftarrow$ Para empezar el hecho de que los cocientes sean simples $H_i/H_{i-1}$ me dice que la serie es propia ya que $H_i/H_{i-1} \neq \{1\} \implies H_{i-1} \propernormal H_i$.
+
+Supongamos ahora que $\{1\} = K_0 \trianglelefteq K_1 \trianglelefteq ... \trianglelefteq K_m = G$ es un refinamiento propio de la serie (con lo que en particular $m > n$). Sea $K_l$ el mayor de los que no aparecen en la serie original de modo que $l < m$ y además $K_{l+1}$ aparece en la original. Sea $K_{l+1} = H_r$. 
+
+Se tiene que $H_{r-1} \propernormal K_l \propernormal K_{l+1} = H_r$ de donde $K_l/H_{r-1} \propernormal H_r/H_{r-1}$ y $K_l/H_{r-1}$ es no trivial. Como $H_r/H_{r-1}$ es simple llegamos a una contradicción.
+\end{proof}
+
+\begin{example}
+1. Probemos que en efecto la serie $\{1\} \trianglelefteq C_2 \trianglelefteq K \trianglelefteq A_4 \trianglelefteq S_4$ no admite refinamientos propios. Para ello calculamos los cocientes sucesivos. 
+
+$C_2/\{1\} \cong C_2$ que es simple puesto que es abeliano.\\
+$K/C_2 \cong C_2$ ya que $|K/C_2| = 2$.\\
+$A_4/K \cong C_3$ ya que $|A_4/K| = 3$.\\
+$S_4/A_4 \cong C_2$ ya que $|S_4/A_4| = 2$.
+ 
+2.$\mathbb{Z}$ no tiene series de composición.
+
+Si tuviera una serie de composición $\{0\} = t_1\mathbb{Z} \trianglelefteq ... \trianglelefteq t_{n-1}\mathbb{Z} \trianglelefteq \mathbb{Z}$, en particular $(t_1\mathbb{Z})/\{0\} \cong t_1\mathbb{Z}$ debería ser simple, pero se trata de un grupo abeliano que tiene como subgrupos los múltiplos de $t_1$ y los subgrupos de un grupo abeliano son todos normales.
+\end{example}
+
+\begin{theorem}[Existencia de una serie de composición para grupos finitos]
+Si G es un grupo finito entonces tiene al menos una serie de composición.
+\end{theorem}
+\begin{proof}
+Procedamos por inducción fuerte sobre $|G|$. 
+
+Si $|G| = 2$ entonces la serie $\{1\} \trianglelefteq G$ es una serie de composición.\\
+Si $|G| > 2$ entonces tomamos $K$ el mayor subgrupo normal contenido propiamente en $G$. Obsérvese que al menos $\{1\}$ es normal en $G$ y que existirá un mayor subgrupo normal ya que el retículo de subgrupos es finito. 
+
+Por hipótesis de inducción, dicho subgrupo $K$ admite una serie de composición $$\{1\} = K_0 \trianglelefteq K_1 \trianglelefteq ... \trianglelefteq K_r = K$$ de modo que la serie $$\{1\} = K_0 \trianglelefteq K_1 \trianglelefteq ... \trianglelefteq K \trianglelefteq G$$ es una serie de composición para $G$.
+\end{proof}
+
+\begin{example}
+La serie de composición del grupo no tiene por qué ser única. Así $\{1\} \propernormal <r^2> \propernormal <r> \propernormal D_4$ y si $K = <r^2,s>$ es uno de los subgrupos de Klein tenemos $\{1\} \propernormal <s> \propernormal K \propernormal D_4$. Y observamos que los factores en ambos casos son isomorfos a $C_2$.
+\end{example}
+
+La pregunta es si dadas dos series de composición existirá alguna relación entre ellas.
+
+\begin{definition}[Series equivalentes]
+Dadas dos series normales de G, $$\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$$ y $$\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_n = G$$ Diremos que estas dos series son equivalentes o isomorfas si:
+
+1) m = n\\
+2) $\exists \sigma \in S_n$ tal que $G_i/G_{i-1} \cong H_{\sigma(i)}/H_{\sigma(i)-1}$ con $i=1,...,n$. 
+
+Esto es, tienen la misma longitud y factores isomorfos salvo el orden en que ocurren.
+\end{definition}
+
+Probamos a continuación el Cuarto teorema de isomorfía, que nos será útil para demostrar para demostrar el lema de Schreier para lo cual usaremos dos lemas previos.
+
+\begin{lemma}[Ley Modular o Regla de Dedekind]
+Sea $G$ un grupo. $A,B,C \le G$ con $A \le C$. Entonces $A(B \cap C) = (AB) \cap C$
+\end{lemma}
+\begin{proof}
+Procedemos por doble inclusión
+
+$\subseteq$ Si tomo un elemento de $A(B \cap C)$ entonces es producto de un elemento $a \in A$ y de un elemento de $x \in B \cap C$. Como $x \in B$ se tiene que $ax \in AB$ y como $A \le C$ se tiene que $ax \in C$ de done $ax \in (AB) \cap C$.
+
+$\supseteq$ Recíprocamente si tomo un elemento de $(AB) \cap C$ entonces será de la forma $z = ab$ con $z \in C$ y $a \in A$,$b \in B$. Pero $a$ también está en $C$ y eso nos permite afirmar que $b = a^{-1}ab \in C$ de donde $z \in A(B \cap C)$. Como se quería.
+\end{proof}
+
+\begin{lemma}[Consecuencia del tercer teorema de isomorfía]\label{lemma:consecuencia-tercer-teorema-isomorfia}
+Sea $G$ un grupo. $A,B,C \le G$ y $B \trianglelefteq A$. Entonces se verifica:\\
+i) $B \cap C \cong A \cap C$ y $\frac{A \cap C}{B \cap C} \cong \frac{B(A \cap C)}{B}$\\
+ii) Si además $C \trianglelefteq G$ entonces $BC \trianglelefteq AC$ y $\frac{AC}{BC} \cong \frac{A}{B(A \cap C)}$
+\end{lemma}
+\begin{proof}
+i) Basta aplicar el tercer teorema de isomorfismo con $H = A \cap C$ y $K = B$.\\
+ii) Puesto que $C \trianglelefteq G$ por la proposición \ref{theorem:teorema-producto} se tendrá que $BC,AC \le G$ y como $B \trianglelefteq A$ claramente $BC \le AC$.
+
+Veamos que $BC \trianglelefteq AC$. Sea $ac \in AC$ y $bc' \in BC$, entonces $(ac)(bc')(ac)^{-1} = (aca^{-1})(aba^{-1})(ac'c^{-1}a^{-1}) \in CBC = BCC = BC$ por ser $B \trianglelefteq A$, $C \trianglelefteq G$ y $BC =CB$.
+
+El isomorfismo se deduce al aplicar el tercer teorema de isomorfismo para $H = A$ y $K = BC$ teniendo en cuenta que por la regla de Dedekind $(BC) \cap A \cong B(A \cap C)$ y que $HK = ABC = AC$ ya que $B \le A$.
+\end{proof}
+
+\begin{lemma}[Cuarto teorema de isomorfía]
+Sea G un grupo y $C_1,A_1,C_2,A_2$ subgrupos de G tales que $C_1 \trianglelefteq A_1$ y $C_2 \trianglelefteq A_2$. Entonces:
+
+1. $(A_1 \cap C_2)C_1 \trianglelefteq (A_1 \cap A_2)C_1$.\\
+2. $(C_1 \cap A_2)C_2 \trianglelefteq (A_1 \cap A_2)C_2$.\\
+3. $(A_1 \cap A_2)C_1/(A_1 \cap C_2)C_1 \cong (A_1 \cap A_2)C_2/(A_2 \cap C_1)C_2$.
+\end{lemma}
+\begin{proof}
+Considérese como espacio ambiente $A_2$ y apliquemos el tercer teorema de isomorfismo para $K = C_2$ y $H = A_1 \cap A_2$. Entonces $H \cap K = A_1 \cap A_2 \cap C_2 = A_1 \cap C_2 \trianglelefteq A_1 \cap A_2$ y análogamente $A_2 \cap C_1 \trianglelefteq A_1 \cap A_2$. Entonces es fácil razonar que su producto $B = (A_1 \cap C_2)(A_2 \cap C_1) \trianglelefteq A_1 \cap A_2$ (para ello utilícese la proposición \ref{theorem:teorema-producto} y el teorema \ref{theorem:criterio-normalidad}). 
+
+Aplicamos el apartado ii) del lema \ref{lemma:consecuencia-tercer-teorema-isomorfia} para el producto $B$, $A = A_1 \cap A_2$ y $C = C_1$ entonces $$BC = BC_1 = (A_1 \cap C_2)(A_2 \cap C_1)C_1 = (A_1 \cap C_2)C_1 \trianglelefteq (A_1 \cap A_2)C_1$$ y $$\frac{AC}{BC} \cong \frac{(A_1 \cap A_2)C_1}{(A_1 \cap C_2)C_1} \cong \frac{A}{B(A \cap C)} = \frac{A_1 \cap A_2}{B(A_1 \cap A_2 \cap C_1)} = \frac{A_1 \cap A_2}{(A_1 \cap C_2)(A_2 \cap C_1)}$$. Por simetría se obtendría el punto 2 y el segundo isomorfismo.
+\end{proof}
+
+\begin{theorem}[Lema de refinamiento de Schreier (1928)]
+Dos series de un grupo G admiten refinamientos equivalentes.
+\end{theorem}
+\begin{proof}
+Sean $$\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$$ y $$\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_m = G$$ dos series normales para el grupo $G$. 
+
+Para $i \in I_n$ y $j \in I_m$ notaremos $G_{ij} = (G_i \cap H_j)G_{i-1}$ $(i \neq 0)$ y $H_{ij} = (H_{j} \cap G_i) H_{j-1}$ $(j \neq 0)$. Se tiene que $$G_{i-1} = G_{i0} \le G_{i1} \le ... \le G_{im} = G_i \;\;\; (1)$$ y $$H_{j-1} = H_{0j} \le H_{1j} \le ... \le H_{nj} = H_j \;\;\; (2)$$
+
+Usando el lema con $C_1 = G_{i-1} \trianglelefteq A_1 = G_i$ y $C_2 = H_{j-1} \trianglelefteq A_2 = H_j$ de aquí se obtiene que $G_{ij-1} \trianglelefteq G_{ij}$ y que $H_{i-1j} \trianglelefteq H_{ij}$ y se obtiene que en (1) y (2) las series son normales. Además, por el cuarto teorema de isomorfía $G_{ij}/G_{ij-1} \cong H_{ij}/H_{i-1j}$.
+
+Para ver que las series obtenidas son equivalentes basta ver que tienen la misma longitud. 
+
+$1 = G_0 \trianglelefteq G_{10} \trianglelefteq G_{11} \trianglelefteq ... \trianglelefteq G_{1m} = G_1 = G_{20} \trianglelefteq G_{21} \trianglelefteq ... \trianglelefteq G_{2m} = G_2 \trianglelefteq ... \trianglelefteq G_{nm} = G_n = G$
+
+Cuya longitud es $n+(m-1)n = nm$.
+
+$1 = H_0 \trianglelefteq H_{01} \trianglelefteq H_{02} \trianglelefteq ... \trianglelefteq G_{n1} = H_1 = H_{02} \trianglelefteq H_{12} \trianglelefteq ... \trianglelefteq H_{n2} = H_2 \trianglelefteq ... \trianglelefteq H_{nm} = H_m = G$
+
+Cuya longitud es $nm$.
+\end{proof}
+
+
+\begin{theorem}[Teorema de Jordan-Hölder]
+Sea G un grupo finito, entonces:\\
+1) Toda serie normal de G admite un refinamiento que es una serie de composición de G.\\
+2) Cualesquiera dos series de composición de G son equivalentes.
+\end{theorem}
+\begin{proof}
+1. Denotemos por $S_1$ a una serie normal de $G$ y por $S_2$ a una serie de composición de $G$, que existe puesto que $G$ es finito. Por el lema de refinamiento de Schreier ambas series admiten refinamientos equivalentes. 
+
+$S_1$ admite un refinamiento equivalente a un refinamiento de $S_2$ y como $S_2$ es de composición el refinamiento de $S_1$ es equivalente a la serie $S_2$.
+
+Pero una serie que sea equivalente a una serie de composición necesariamente ha de ser una serie de composición ya que los factores de ambas series salvo el orden son isomorfos y como los de la serie de composición son simples por la condición de factores simples se deduce que tenemos una serie de composición.
+
+2. Por el lema de refinamiento de Schreier las series de composición $S_1$ y $S_2$ admiten refinamientos equivalentes. Pero como $S_1$ y $S_2$ son series de composición sus refinamientos coinciden con $S_1$ y $S_2$ luego son equivalentes.
+\end{proof}
+
+\begin{definition}[Longitud y factores de un grupo finito]
+Sea G un grupo finito.
+
+La longitud de G es la longitud de cualquier serie de composición de G. Lo denotaremos por L(G).\\
+Los factores de composición de G son los factores de cualquiera de sus series de composición. Al conjunto de los factores de composición lo denotaremos por Fact(G).
+\end{definition}
+
+\subsection{Grupos solubles}
+
+\begin{definition}[Grupo soluble]
+Un grupo G es soluble si tiene una serie normal $\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ cuyos factores $G_i/G_{i-1}$ con $i=1,...,n$ son abelianos.
+\end{definition}
+
+Notemos que la solubilidad de un grupo es invariante por homomorfismo.
+
+\begin{example}
+Todo grupo abeliano es soluble ya que $\{1\} \trianglelefteq G$ es una serie normal y además $G/\{1\} = G$ es abeliano.
+\end{example}
+
+\begin{theorem}[Caracterización por factores de un grupo finito soluble]
+Sea G un grupo finito. Entonces equivalen:
+
+1) Los factores de composición de G son cíclicos de orden primo.\\
+2) G tiene una serie normal con factores cíclicos.\\
+3) G es soluble.
+\end{theorem}
+\begin{proof}
+Claramente $1) \implies 2) \implies 3)$.
+
+Veamos que $3) \implies 1)$. En efecto, sea $\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ una serie normal para $G$ cuyos cocientes $G_i/G_{i-1}$ son abelianos con $i = 1, ... ,n$.
+
+Por el teorema de Jordan-Hölder dicha serie admite un refinamiento que es una serie de composición $\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_m = G$. Si demostramos que los cocientes además de ser simples son abelianos habríamos terminado ya que un grupo abeliano y simple es cíclico de orden primo. 
+
+Consideremos $G_{j-1} \trianglelefteq H_{r-1} \propernormal H_{r} \trianglelefteq G_{j}$ y por el segundo teorema de isomorfismo tenemos que $H_r/H_{r-1} \cong (H_r/G_{j-1})/(H_{r-1}/G_{j-1})$ y dado que $H_r/G_{j-1} \le G_j/G_{j-1}$ que es abeliano, es también él mismo abeliano. En consecuencia el cociente es abeliano y por isomorfismo hemos acabado.
+\end{proof}
+
+\begin{example}
+$S_2$ es un grupo abeliano y por tanto es soluble. Se verifica que $Fact(S_2) = \{C_2\}$.\\
+En $S_3$ tenemos la serie de composición $\{1\} \trianglelefteq A_3 \trianglelefteq S_3$ de donde $Fact(S_3) = \{C_2,C_3\}$ y por tanto $S_3$ es un grupo soluble.\\
+En $S_4$ consideramos la serie de composición $\{1\} \trianglelefteq C \trianglelefteq K \trianglelefteq A_4 \trianglelefteq S_4$ con factores $Fact(S_4) = \{C_2,C_3,C_2,C_2\}$ y por tanto $S_4$ es un grupo soluble.
+\end{example}
+
+\begin{proposition}[Relación de la solubilidad con cocientes y subgrupos]
+Sea $G$ un grupo:
+
+1. Si $G$ es soluble y $H \le G \implies H$ es soluble.\\
+2. Si $G$ es soluble y $N \trianglelefteq G \implies G/N$ es soluble.\\
+3. Si $N \trianglelefteq G$ tal que $N$ y $G/N$ son solubles $\implies$ G es soluble.
+\end{proposition}
+\begin{proof}
+1. Sea $\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ con $G_i/G_{i-1}$ abeliano. Vamos a ver que $\{1\} = G_0 \cap H \trianglelefteq G_1 \cap H \trianglelefteq ... \trianglelefteq G_n \cap H= G$ hace soluble a $H$.
+
+Considerando como espacio ambiente $H_i$ tenemos la normalidad de $G_{i-1} \trianglelefteq G_i$ y podemos aplicar el tercer teorema de isomorfía a $K = G_{i-1}$ y $H = H \cap H_i$ de modo que $\frac{H \cap G_i}{H \cap G_{i-1}} = \frac{H \cap G_i}{H \cap G_{i} \cap G_{i-1}} \cong \frac{(H \cap G_i)G_{i-1}}{G_{i-1}} \le \frac{G_i}{G_{i-1}}$ que es un grupo abeliano. Se concluye ya que los subgrupos de grupos abelianos son abelianos.
+
+2. Como en 1. sea $\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ con $G_i/G_{i-1}$ abeliano. Entonces claramente (revisar notas) $G_iN \trianglelefteq G_{i+1}N$ y la serie $\{1\} = G_0N/N \trianglelefteq G_1N/N \trianglelefteq ... \trianglelefteq G_nN/N = G/N$ nos dirá que $G/N$ es abeliano.
+
+En efecto, $\frac{G_iN/N}{G_{i-1}N/N} \cong \frac{G_iN}{G_{i-1}N} \cong \frac{G_i}{G_i \cap G_{i-1}N} \cong \frac{G_i/G_{i-1}}{\frac{G_i \cap G_{i-1}N}{G_{i-1}}}$. Donde en la primera igualdad se utiliza el segundo teorema de isomorfismo gracias a la normalidad de $N$ en $G$ y en la segunda igualdad se utiliza el tercer teorema de isomorfismo con $H = G_{i}$ y $K = G_{i-1}N$ y en la última igualdad se vuelve a usar el segundo teorema de isomorfismo con la normalidad de $G_{i-1}$ en $G_i$. Por ser el numerador abeliano se deduce que los cocientes de la nueva serie son abelianos y hemos acabado.
+
+3. De la solubilidad de $N$ deducimos que existe una serie $\{1\} = N_0 \trianglelefteq N_1 \trianglelefteq ... \trianglelefteq N_r = N$ con $N_i/N_{i-1}$ abeliano. Como $G/N$ es soluble existe otra serie $\{1\} = G_0/N \trianglelefteq G_1/N \trianglelefteq ... \trianglelefteq G_n/N = G/N$ con $(G_i/N)/(G_{i-1}/N) \cong G_i/G_{i-1}$ abeliano.
+
+Por tanto la serie $\{1\} = N_0 \trianglelefteq N_1 \trianglelefteq ... \trianglelefteq N_r = N = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ hace al grupo $G$ soluble.
+\end{proof}
+
+\begin{corollary}[Solubilidad de los grupos diédricos]
+$D_n$ es un grupo soluble $\forall n \ge 3$.
+\end{corollary}
+\begin{proof}
+Consideremos $N = <r>$. Como $[D_n:N] = 2$ sabemos que $N \trianglelefteq D_n$. Como $N$ es abeliano, es soluble y como $|D_n/N| = 2$ entonces $D_n/N \cong C_2$ que es un grupo abeliano y por tanto es soluble. Finalmente, aplicando 3. se llega a que $D_n$ es soluble.
+\end{proof}
+
+\begin{theorem}[Teorema de Abel]
+$A_n$ es un grupo simple $\forall n \ge 5$.
+\end{theorem}
+
+\begin{corollary}[Solubilidad de los grupos de permutaciones]
+$S_n$ es soluble $\iff n \le 4$.
+\end{corollary}
+\begin{proof}
+En efecto, si $n \le 4$ por el ejemplo anterior anterior sabemos que $S_n$ es soluble. Ahora, si $n > 4$ sabemos que $A_n$ es simple por el teorema de Abel y por tanto la serie $\{1\} \trianglelefteq A_n \trianglelefteq S_n$ es una serie de composición ya que sus factores son $\{C_2,A_n\}$ que son simples y ya que $A_n$ no es cíclico ni de orden primo por la caracterización por factores de un grupo finito soluble se tiene que $S_n$ no es soluble.
+\end{proof}
+
+\begin{definition}[Subgrupo conmutador]
+Dado un grupo $G$ y $x,y \in G$, su conmutador es $[x,y] := xyx^{-1}y^{-1}$. Es claro que $xy = [x,y]yx$ y es por ello que se llama conmutador. El subgrupo conmutador o primer derivado de $G$ es $$[G:G] := <\{[x,y]:x,y \in G\}>$$
+\end{definition}
+
+\begin{proposition}[Propiedades del subgrupo conmutador]
+1. $G$ es abeliano $\iff [G,G] = 1$.\\
+2. $[G,G] \trianglelefteq G$.\\
+3. $G/[G,G]$ es abeliano y se le llama el abelianizado del grupo $G$, $G_{ab}$.\\
+4. Si $f:G \rightarrow A$ es un homomorfismo y $A$ es abeliano entonces $[G,G] \le Ker(f)$.\\
+5. Si $N \trianglelefteq G$ entonces $G/N$ es abeliano $\iff [G,G] \le N$. En otras palabras, el conmutador es el subgrupo más pequeño que hace abeliano al cociente.
+\end{proposition}
+\begin{proof}
+1. Es evidente.\\
+2. Basta usar la condición de normalidad $a[x,y]a^{-1} = [axa^{-1},aya^{-1}] \in [G:G]$.\\
+3. $(x[G:G])(y[G:G]) = (xy)[G:G] = (yx[y^{-1}x^{-1}])[G:G] = yx[G:G] = (y[G:G])(x[G:G])$.\\
+4. $f([x,y]) = f(x)f(y)f(x)^{-1}f(y)^{-1} = f(x)f(x)^{-1}f(y)f(y)^{-1} = 1$ de donde $[x,y] \in Ker(f)$.\\
+5. $\Leftarrow$ Si $[G:G] \triangleleft N$ entonces $(xN)(yN)=(xy)N=[x,y]yxN=yxN = (yN)(xN)$.\\
+$\Rightarrow$ Si $G/N$ es abeliano entonces $[G:G] \le Ker(p) = N$ donde $p$ es la proyección canónica.
+\end{proof}
+
+\begin{definition}[Derivado y serie derivada de un grupo]
+Dado un grupo $G$, el n-ésimo derivado de $G$ es por recurrencia:
+
+$G^{0}:= G$\\
+$G^{1}:= [G,G]$\\
+$G^{n+1}:=[G^{n},G^{n}]$ $n \ge 1$\\
+
+En estas condiciones tenemos una serie normal, en general no finita de la forma $$G^{n+1} \trianglelefteq G^{n} \trianglelefteq ... \trianglelefteq G^{1} \trianglelefteq G$$ llamada serie derivada del grupo $G$ cuyos factores son abelianos.
+\end{definition}
+
+\begin{theorem}[Caracterización por derivados de un grupo soluble]
+Sea $G$ un grupo:
+
+$G$ es soluble $\iff \exists n $ tal que $G^{n} = \{1\}$.
+
+En otras palabras, $G$ es soluble si y sólo si la serie derivada es finita.
+\end{theorem}
+\begin{proof}
+$\Rightarrow$ Si $G$ es soluble y $\{1\} = G_0 \trianglelefteq G_1 \trianglelefteq ... \trianglelefteq G_n = G$ es una serie tal que $G_i/G_{i-1}$ es abeliano entonces vamos a probar que para todo $k$ se verifica que $G^{k)} \le H_{n-k}$. De donde para $k = n$ se tendría que $G^{n)} \le H_{n-n} = H_0 = \{1\}$ de donde $G^{n)} = \{1\}$.
+
+Para $k = 1$ se verifica que como $G/G_{n-1}$ es abeliano entonces $[G,G]  \le G_{n-1}$. 
+
+Para $k > 1$ tomemos como hipótesis de inducción que $G^{k)} \le G_{n-k}$. Por tanto como $G_{n-k}/G_{n-(k+1)}$ es abeliano entonces $G^{k+1)} \le [G_{n-k},G_{n-k}] \le G_{n-(k+1)}$. Y hemos acabado.
+
+$\Leftarrow$ En efecto, si $\exists n $ tal que $G^{n} = \{1\}$ entonces la serie derivada es finita y sus cocientes son abelianos por la propiedad del abelianizado.
+\end{proof}
+
+\newpage
+
+\section{Tema 6: G-conjuntos y p-grupos}
+
+\subsection{G-conjuntos}
+
+\begin{definition}[Acción por la izquierda]
+Sea G un grupo y X un conjunto no vacío.
+
+Una acción por la izquierda del grupo G sobre el conjunto X consiste en una aplicación $G \times X \rightarrow X$ tal que $(g,x) \mapsto g_x$ cumpliendo dos condiciones:
+
+1. $1_x = x$ $\forall x \in X$.\\
+2. $(g_1g_2)_x = g_{1_{g_{2_x}}}$ $\forall g_1,g_2 \in X$ y $x \in X$.
+
+A $X$ se llamará G-conjunto y $G$ se llamará dominio de operadores. Al valor $g_x$ se le llama "g actuando sobre x". 
+\end{definition}
+
+\begin{proposition}
+Dar una acción de $G$ sobre $X$ equivale a dar un homomorfismo $G \rightarrow S(X)$.
+\end{proposition}
+\begin{proof}
+Para cada $g \in G$ definiríamos la aplicación $\phi(g):X \rightarrow X$ tal que $x \mapsto g_x$. A esta aplicación se la conoce como representación asociada a la acción.
+
+Recíprocamente, dado un homomorfismo de grupos $\phi:G \rightarrow S(X)$ la aplicación $G \times X \rightarrow X$ tal que $(g,x) \mapsto g_x:= \phi(g)(x)$ es una acción por la izquierda.
+\end{proof}
+
+\begin{definition}[Núcleo de una acción, acción fiel]
+Definimos el núcleo de una acción como el núcleo de su homomorfismo representante $\phi$ esto es $Ker(\phi) = \{g \in G: \phi(g) = id_X\} = \{g \in G:g_x = x \; \forall x \in X\}$.
+
+Diremos que una acción es fiel si $Ker(\phi) = \{1\}$.
+\end{definition}
+
+\begin{example}
+1. Dados G y X arbitrarios, la acción trivial es $G \times X \rightarrow X$ tal que $g_x = x \; \forall g \in G$ y $\forall x \in X$. La representación asociada es el homomorfismo trivial de $G$ a $S(X)$.\\
+2. La restricción de una acción $\phi:G \times X \rightarrow X$ a un subgrupo $H \le G$ es también una acción $\phi':H \times X \rightarrow X$ dada por la composición de la inclusión $i$ y la acción $\phi$.\\
+3. Sea $G = S_n$ y $X = I_n$ entonces $S(X) = S_n$ y la identidad en $S_n$ define la acción $S_n \times X \rightarrow X$ dada por $(\sigma,i) \mapsto \sigma(i)$. Esta acción es fiel.\\
+4. Sea $G=S_n$ y $X$ cualquiera no vacío. Notamos por $X^n$ al producto cartesiano de X n veces. Se tiene la siguiente acción $G \times X^n \rightarrow X^n$ tal que $(\sigma,(x_1,...,x_n)) \mapsto (x_{\sigma^{-1}(1)},...,x_{\sigma^{-1}(n)})$. Esta acción es fiel.\\
+5. Si $G$ es un grupo cualquiera y tomamos $X=G$. Definimos la acción por traslación de $G$ sobre sí mismo como $G \times G \rightarrow G$ tal que $(g,h) \mapsto g_h:=gh$. Esta acción es fiel.\\
+6. Sea g un grupo finito y tomamos $X=G$. La acción por conjugación de $G$ sobre sí mismo es $G \times G \rightarrow G$ tal que $(g,h) \mapsto ghg^{-1}$ y además su representación asociada es la que a cada elemento le hace corresponder su automorfismo interior. Su núcleo coincide con el centro del grupo, $Z(G)$.\\
+7. Sea $G$ un grupo y $X = Sub(G)$. Consideremos la acción $G \times Sub(G) \rightarrow Sub(G)$ tal que $(g,H) \mapsto gHg^{-1}$. Claramente $Ker(\phi) = \{g \in G:gH = Hg \; \forall Sub(G)\}$. Obsérvese que es una generalización de la acción por conjugación.
+\end{example}
+
+\begin{theorem}[Teorema de Cayley]
+Todo grupo finito es isomorfo a un subgrupo del grupo de permutaciones del mismo orden que el grupo.
+\end{theorem}
+\begin{proof}
+Sea $|G|=n$ entonces naturalmente $S(G) \cong S_n$. 
+
+Consideremos la acción por translación sobre $G$, $\phi$. Como $\phi$ es un monomorfismo, su dominio y su imagen son isomorfos, esto es, $\phi(G) \cong G$. Téngase en cuenta también que $\phi(G)$ es un subgrupo de $S(G)$. Por tanto, sabemos que $G$ es isomorfo a un subgrupo de $S(G)$. El primer isomorfismo nos dice que es isomorfo a un subgrupo de $S_n$.
+\end{proof}
+
+\begin{definition}[Órbitas y acción transitiva]
+Dados $x,y \in X$ diremos que $x \sim y \iff \exists g \in G$ tal que $y = g_x$. Se tiene una relación de equivalencia cuya clase de equivalencia es $O(x) = \{y \in G:y \sim x\} = \{g_x:x \in G\}$.
+
+En otras palabras la órbita de un elemento es el resultado de aplicar todos los elementos de $G$ a x. 
+
+La acción es transitiva si $O(x) = O(y) \; \forall x,y \in X$, esto es, si $\forall x,y \in X \exists g \in G$ tal que $y = g_x$.
+\end{definition}
+
+\begin{definition}[Estabilizador]
+Para cada $x \in X$ el estabilizador de $x$ en $G$ es $Stab_G(x) = \{g \in G:g_x = x\}$. Se verifica que el estabilizador es un subgrupo de $G$.
+\end{definition}
+
+\begin{proposition}[Relación entre el estabilizador y las órbitas]
+1. Sea $G$ es un grupo finito actuando sobre un conjunto $X$. Entonces para cada $x \in X$, $O(x)$ es finito y además $|O(x)| = [G:Stab_G(x)]$. En particular, $|O(x)|$ $|$ $|G|$.\\
+2. Si $O(x) = O(y)$ entonces los estabilizadores son subgrupos conjugados. Esto es, $\exists g \in G:g Stab_G(x) g^{-1} = Stab_G(y)$.
+\end{proposition}
+
+\begin{definition}[Elementos fijos por una acción]
+$x \in X$ es fijo por la acción si $g_x = x$ $\forall g \in G$. De forma equivalente se tiene que $O(x) = \{x\}$ o bien que $Stab_G(x) = G$. Al conjunto de elementos fijos por la acción lo denotaremos por $Fix_G(X)$.
+\end{definition}
+
+\begin{example}
+1. Consideramos la acción por translación. Claramente la órbita de cualquier elemento h es $$O(h) = G$$ En particular, es una acción transitiva. 
+
+Además $$Stab_G(h) = \{1\}$$ y por tanto $$Fix(G) = \emptyset$$
+
+2. Consideremos la acción por conjugación. Claramente la órbita de cualquier elemento h es $$O(h) = \{ghg^{-1}:g \in G\}$$ a esto lo llamaremos clase de conjugación del elemento h y lo denotaremos por $Cl(h)$. El estabilizador será $$Stab_G(h) = \{g \in G:ghg^{-1}  = h\}$$ a esto se le llama centralizador y lo denotaremos por $C_G(h)$.El nombre de centralizador proviene de la siguiente igualdad: $$Fix(G) = Z(G) = \cap_{h \in G} C_G(h)$$ 
+ \end{example}
+
+
+\printbibliography
+
+
+\end{document}
