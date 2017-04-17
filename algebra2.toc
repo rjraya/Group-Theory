@@ -1,0 +1,78 @@
+\select@language {spanish}
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Pr\IeC {\'o}logo}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Tema 1: preliminares}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}El anillo de enteros m\IeC {\'o}dulo n}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Funci\IeC {\'o}n phi de Euler}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Tema 2: grupos. Definiciones y ejemplos. Homomorfismos de grupos.}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Definici\IeC {\'o}n de grupo y primeras propiedades}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Ejemplos de grupos}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.1}Anillos y unidades de un anillo.}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.2}Grupo de las ra\IeC {\'\i }ces n-\IeC {\'e}simas de la unidad.}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.3}Grupo lineal general de orden n.}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.4}Grupos sim\IeC {\'e}tricos}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.5}Grupos di\IeC {\'e}dricos.}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.6}Grupo de los cuaternios.}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.7}Grupo de Klein.}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.8}Grupo alternado.}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Homomorfismos.}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Tema 3: subgrupos. \IeC {\'O}rdenes e \IeC {\'\i }ndices.}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Definici\IeC {\'o}n de subgrupo. Ejemplos y primeros resultados.}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Ret\IeC {\'\i }culo de subgrupos de un grupo.}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Producto de subgrupos.}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}Subgrupo generado por un conjunto.}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5}Teorema de Lagrange.}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.6}Orden de un elemento.}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.7}Clasificaci\IeC {\'o}n de los grupos c\IeC {\'\i }clicos y descripci\IeC {\'o}n del ret\IeC {\'\i }culo de subgrupos.}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Tema 4: grupos cociente, teoremas de isomorf\IeC {\'\i }a y producto directo de grupos}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Subgrupos normales}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Grupo cociente}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3}Teoremas de isomorfismo}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4}Producto directo}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.4.1}Producto directo de grupos}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.4.2}Producto directo de homomorfismos}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.4.3}Producto directo interno}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Tema 5: Grupos solubles}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Grupos simples y series normales}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}Grupos solubles}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Tema 6: G-conjuntos y p-grupos}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1}G-conjuntos}{34}
