@@ -2,11 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: algebra2.aux
 The style file: biblatex.bst
-I couldn't open database file references.bib
----line 5 of file algebra2.aux
- : \bibdata{algebra2-blx,references
- :                                 }
-I'm skipping whatever remains of this command
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -19,48 +14,48 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: algebra2-blx.bib
+Database file #2: references.bib
 Biblatex version: 2.8
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 1 entry,
+You've used 17 entries,
             6047 wiz_defined-function locations,
-            1129 strings with 8091 characters,
-and the built_in function-call counts, 1306 in all, are:
-= -- 64
-> -- 58
-< -- 1
-+ -- 41
-- -- 24
-* -- 23
-:= -- 295
+            1206 strings with 9114 characters,
+and the built_in function-call counts, 52449 in all, are:
+= -- 2652
+> -- 1647
+< -- 697
++ -- 592
+- -- 417
+* -- 2604
+:= -- 2921
 add.period$ -- 0
-call.type$ -- 1
-change.case$ -- 0
+call.type$ -- 17
+change.case$ -- 463
 chr.to.int$ -- 34
-cite$ -- 0
-duplicate$ -- 12
-empty$ -- 92
-format.name$ -- 0
-if$ -- 289
+cite$ -- 32
+duplicate$ -- 5865
+empty$ -- 5434
+format.name$ -- 796
+if$ -- 12404
 int.to.chr$ -- 0
-int.to.str$ -- 0
+int.to.str$ -- 52
 missing$ -- 0
-newline$ -- 22
-num.names$ -- 0
-pop$ -- 44
+newline$ -- 313
+num.names$ -- 1019
+pop$ -- 5165
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 479
 quote$ -- 0
-skip$ -- 74
+skip$ -- 3536
 stack$ -- 0
-substring$ -- 117
-swap$ -- 1
-text.length$ -- 16
-text.prefix$ -- 0
+substring$ -- 1891
+swap$ -- 1733
+text.length$ -- 411
+text.prefix$ -- 18
 top$ -- 1
-type$ -- 26
+type$ -- 634
 warning$ -- 0
-while$ -- 50
+while$ -- 326
 width$ -- 0
-write$ -- 20
-(There was 1 error message)
+write$ -- 295

@@ -16,6 +16,297 @@
   {}
 \endgroup
 
+\entry{artin}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Artin}{A.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Prentice-Hall}%
+  }
+  \strng{namehash}{AM1}
+  \strng{fullhash}{AM1}
+  \field{sortinit}{A}
+  \field{title}{Algebra}
+  \field{year}{1991}
+\endentry
+
+\entry{aschbacher}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Aschbacher}{A.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cambridge University Press}%
+  }
+  \strng{namehash}{AM2}
+  \strng{fullhash}{AM2}
+  \field{sortinit}{A}
+  \field{title}{Finite Group Theory}
+  \field{year}{2000}
+\endentry
+
+\entry{carter}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Carter}{C.}%
+     {N.}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Mathematical Association of America}%
+  }
+  \strng{namehash}{CN1}
+  \strng{fullhash}{CN1}
+  \field{sortinit}{C}
+  \field{title}{Visual Group Theory}
+  \field{year}{2009}
+\endentry
+
+\entry{dieudonne}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Dieudonné}{D.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Wadsworth, In.}%
+  }
+  \strng{namehash}{DJ1}
+  \strng{fullhash}{DJ1}
+  \field{sortinit}{D}
+  \field{title}{History of Algebraic Geometry}
+  \field{year}{1985}
+\endentry
+
+\entry{dixon}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Dixon}{D.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Blaisdell Publishing Company}%
+  }
+  \strng{namehash}{DJ2}
+  \strng{fullhash}{DJ2}
+  \field{sortinit}{D}
+  \field{title}{Problems in Group Theory}
+  \field{year}{1967}
+\endentry
+
+\entry{dorronsoro}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {E.~Hernández}{E.~H.}%
+     {J.~Dorronsoro}{J.~D.}%
+     {y}{y}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Addison-Wesley}%
+  }
+  \strng{namehash}{EHJDy1}
+  \strng{fullhash}{EHJDy1}
+  \field{sortinit}{E}
+  \field{title}{Números, grupos y anillos}
+  \field{year}{1996}
+\endentry
+
+\entry{dummit}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Foote}{F.}%
+     {Dummit}{D.}%
+     {y}{y}%
+     {}{}}%
+  }
+  \list{publisher}{2}{%
+    {John Wiley}%
+    {Sons}%
+  }
+  \strng{namehash}{FDy1}
+  \strng{fullhash}{FDy1}
+  \field{sortinit}{F}
+  \field{title}{Abstract algebra}
+  \field{year}{2004}
+\endentry
+
+\entry{fraileigh}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Fraileigh}{F.}%
+     {J.~B.}{J.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Pearson}%
+  }
+  \strng{namehash}{FJB1}
+  \strng{fullhash}{FJB1}
+  \field{sortinit}{F}
+  \field{title}{A first course in Abstract Algebra}
+  \field{year}{2013}
+\endentry
+
+\entry{grove}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Grove}{G.}%
+     {L.}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Academic Press}%
+  }
+  \strng{namehash}{GL1}
+  \strng{fullhash}{GL1}
+  \field{sortinit}{G}
+  \field{title}{Algebra}
+  \field{year}{1983}
+\endentry
+
+\entry{harpe}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Harpe}{H.}%
+     {P.}{P.}%
+     {de~la}{d.~l.}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {The University of Chicago Press}%
+  }
+  \strng{namehash}{HPdl1}
+  \strng{fullhash}{HPdl1}
+  \field{sortinit}{H}
+  \field{title}{Topics in Geometric Group Theory}
+  \field{year}{2000}
+\endentry
+
+\entry{herstein}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Herstein}{H.}%
+     {I.}{I.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{2}{%
+    {Gin}%
+    {Company}%
+  }
+  \strng{namehash}{HI1}
+  \strng{fullhash}{HI1}
+  \field{sortinit}{H}
+  \field{title}{Topics in Algebra}
+  \field{year}{1964}
+\endentry
+
+\entry{jacobson}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Jacobson}{J.}%
+     {N.}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{2}{%
+    {W. H. Freeman}%
+    {Company}%
+  }
+  \strng{namehash}{JN1}
+  \strng{fullhash}{JN1}
+  \field{sortinit}{J}
+  \field{title}{Basic Algebra I}
+  \field{year}{1985}
+\endentry
+
+\entry{ledermann}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Ledermann}{L.}%
+     {W.}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Logman Group}%
+  }
+  \strng{namehash}{LW1}
+  \strng{fullhash}{LW1}
+  \field{sortinit}{L}
+  \field{title}{Introduction to Group Theory}
+  \field{year}{1973}
+\endentry
+
+\entry{pinter}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pinter}{P.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {McGraw-hill}%
+  }
+  \strng{namehash}{PC1}
+  \strng{fullhash}{PC1}
+  \field{sortinit}{P}
+  \field{title}{A Book of Abstract Algebra}
+  \field{year}{1982}
+\endentry
+
+\entry{rotman}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Rotman}{R.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {American Mathematical Society}%
+  }
+  \strng{namehash}{RJ1}
+  \strng{fullhash}{RJ1}
+  \field{sortinit}{R}
+  \field{title}{Advanced Modern Algebra}
+  \field{year}{2010}
+\endentry
+
+\entry{zassenhaus}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Zassenhaus}{Z.}%
+     {H.}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Chelsea Publishing Company}%
+  }
+  \strng{namehash}{ZH1}
+  \strng{fullhash}{ZH1}
+  \field{sortinit}{Z}
+  \field{title}{The theory of groups}
+  \field{year}{1949}
+\endentry
+
 \lossort
 \endlossort
 

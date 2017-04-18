@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.17)  17 APR 2017 17:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.17)  18 APR 2017 08:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1544,7 +1544,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [5] (./tema2.tex
-Underfull \hbox (badness 10000) in paragraph at lines 41--44
+Underfull \hbox (badness 10000) in paragraph at lines 42--45
 
  []
 
@@ -1894,13 +1894,19 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[35]
-
-LaTeX Warning: Empty bibliography on input line 257.
-
-
+[35] 
 AED: lastpage setting LastPage
-(./algebra2.aux
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[36] (./algebra2.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 LaTeX Info: Redefining \. on input line 14.
@@ -1911,10 +1917,10 @@ Package logreq Info: Writing requests to 'algebra2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26746 strings out of 493304
- 490276 string characters out of 6139871
+ 26870 strings out of 493304
+ 492521 string characters out of 6139871
  664716 words of memory out of 5000000
- 29561 multiletter control sequences out of 15000+600000
+ 29685 multiletter control sequences out of 15000+600000
  13184 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  62i,13n,75p,10445b,1231s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1938,10 +1944,10 @@ e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
 /uplbi8a.pfb>
-Output written on algebra2.pdf (36 pages, 373578 bytes).
+Output written on algebra2.pdf (37 pages, 375593 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 213 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11794 words of extra memory for PDF output out of 12000 (max. 10000000)
 

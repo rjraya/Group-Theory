@@ -206,29 +206,14 @@
 \newpage 
 \section{Prólogo}
 
-Las presentes notas fueron confeccionadas por mí durante el verano de 2016. Están basadas en los apuntes de la profesora María del Pilar Carrasco Carrasco del curso 2016-2017. Estas notas tienen lagunas en su redacción aunque los resultados más importantes del curso aparecen razonados. Si alguna persona quisiera completar el trabajo aquí realizado, sólo tiene que ponerse en contacto conmigo ya que será difícil que vuelva sobre ellas para completarlas. Así mismo existe una colección de ejercicios todavía más pequeña que estas notas y que podría ser también completada. 
+Las presentes notas fueron confeccionadas por mí durante el verano de 2016. Están basadas en los apuntes de la profesora María del Pilar Carrasco Carrasco del curso 2016-2017. Estas notas tienen lagunas en su redacción aunque los resultados más importantes del curso aparecen razonados. 
 
-Quería por último agradecer a Andrés Herrera la elaboración de la plantilla de latext con la que he trabajado y a los compañeros del Doble Grado en Ingeniería Informática y Matemáticas de la Universidad de Granada que me han inspirado para realizar este tipo de aportaciones. Espero que estas notas te sirvan de ayuda querido lector para superar con mayor facilidades el curso de Álgebra II y quien sabe si profundizar más en aspectos que nosotros no pudimos. También quería recordarte que ni Pilar Carrasco ni yo hemos inventado la rueda (bueno quizá ella sí) y que encontrarás el contenido de estas notas parcialmente en muchos libros y en internet en particular en el sitio de preguntas y respuestas \url{math.stackexchange.com}. Una lista de libros más o menos completa y más o menos útil es la siguiente:
+Espero que estas notas te sirvan de ayuda querido lector para superar con mayores facilidades el curso de Álgebra II y quién sabe si profundizar más en aquellos aspectos que a nosotros no nos dio tiempo. También quería recordarte que encontrarás el contenido de estas notas parcialmente en muchos libros y en internet en particular en el sitio de preguntas y respuestas \url{math.stackexchange.com}. Una lista de libros más o menos completa y más o menos útil aparece al final, en las referencias.
 
-Basic Algebra I, N. Jacobson. W. H. Freeman and Company, 1985.\\
-A Book of Abstract Algebra, C. Pinter. McGraw-hill, 1982.\\
-Algebra, M. Artin. Prentice-Hall, 1991.\\
-Introduction to Group Theory, W. Ledermann. Logman Group, 1973.\\
-Topics in Geometric Group Theory, P. de la Harpe. The University of Chicago Press, 2000.\\
-Visual Group Theory, N. Carter. Mathematical Association of America, 2009.\\
-Algebra, L. Grove. Academic Press, 1983.\\
-History of Algebraic Geometry, J. Dieudonné. Wadsworth, In., 1985.\\
-Topics in Algebra, I. Herstein. Gin and Company, 1964.\\
-The theory of groups, H. Zassenhaus. Chelsea Publishing Company, 1949.\\
-Advanced Modern Algebra, J. Rotman. American Mathematical Society, 2010.\\
-Fraileigh (como se llame, el clásico).\\
-Abstract algebra, Dummit y Foote. John Wiley and Sons, 2004.\\
-Problems in Group Theory, J. Dixon. Blaisdell Publishing Company, 1967.\\
-Finite Group Theory, M. Aschbacher. Cambridge University Press, 2000.
+Quería agradecer a Andrés Herrera la elaboración de la plantilla de latext con la que he trabajado y a los compañeros del Doble Grado en Ingeniería Informática y Matemáticas de la Universidad de Granada que me han inspirado para realizar este tipo de aportaciones. 
 
-Cabe destacar aunque no se siga el mismo orden en la Universidad de Granada:
+Si alguna persona quisiera completar el trabajo aquí realizado, sólo tiene que ponerse en contacto conmigo ya que será difícil que vuelva sobre ellas para completarlas. Así mismo existe una colección de ejercicios todavía más pequeña que estas notas y que podría ser también completada. 
 
-Números, grupos y anillos. J. Dorronsoro y E. Hernández. Addison-Wesley, 1996.
 
 \newpage
 
@@ -254,6 +239,7 @@ Números, grupos y anillos. J. Dorronsoro y E. Hernández. Addison-Wesley, 1996.
 \input{tema6}
 \newpage
 
+\nocite{*}
 \printbibliography
 
 
