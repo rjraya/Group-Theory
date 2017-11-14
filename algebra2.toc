@@ -51,28 +51,28 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.7}Clasificaci\IeC {\'o}n de los grupos c\IeC {\'\i }clicos y descripci\IeC {\'o}n del ret\IeC {\'\i }culo de subgrupos.}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Tema 4: grupos cociente, teoremas de isomorf\IeC {\'\i }a y producto directo de grupos}{19}
+\contentsline {section}{\numberline {5}Tema 4: grupos cociente, teoremas de isomorf\IeC {\'\i }a y producto directo de grupos}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Subgrupos normales}{19}
+\contentsline {subsection}{\numberline {5.1}Subgrupos normales}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Grupo cociente}{20}
+\contentsline {subsection}{\numberline {5.2}Grupo cociente}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Teoremas de isomorfismo}{21}
+\contentsline {subsection}{\numberline {5.3}Teoremas de isomorfismo}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Producto directo}{23}
+\contentsline {subsection}{\numberline {5.4}Producto directo}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.1}Producto directo de grupos}{23}
+\contentsline {subsubsection}{\numberline {5.4.1}Producto directo de grupos}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.2}Producto directo de homomorfismos}{24}
+\contentsline {subsubsection}{\numberline {5.4.2}Producto directo de homomorfismos}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.4.3}Producto directo interno}{25}
+\contentsline {subsubsection}{\numberline {5.4.3}Producto directo interno}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Tema 5: Grupos solubles}{26}
+\contentsline {section}{\numberline {6}Tema 5: Grupos solubles}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Grupos simples y series normales}{26}
+\contentsline {subsection}{\numberline {6.1}Grupos simples y series normales}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Grupos solubles}{30}
+\contentsline {subsection}{\numberline {6.2}Grupos solubles}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Tema 6: G-conjuntos y p-grupos}{34}
+\contentsline {section}{\numberline {7}Tema 6: G-conjuntos y p-grupos}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}G-conjuntos}{34}
+\contentsline {subsection}{\numberline {7.1}G-conjuntos}{35}
