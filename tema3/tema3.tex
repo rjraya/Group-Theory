@@ -91,15 +91,18 @@ Sea G un grupo, X e Y subconjuntos no vacíos de G. Entonces el producto de X e 
 $$XY = \{xy:x \in X,y \in Y\}$$
 \end{definition}
 
-\begin{proposition}[Teorema del producto (Ledermann)]\label{theorem:teorema-producto}
+El siguiente teorema del producto lo hemos encontrado atribuido a Ledermann:
+
+\begin{proposition}[Teorema del producto]\label{theorem:teorema-producto}
 Sean $H,K$ subgrupos de un grupo G. Entonces:
 
 HK es un subgrupo de G $\iff HK = KH$
 en cuyo caso $H \lor K = HK$
 \end{proposition}
-
 \begin{proof}
+%Veamos primero la doble implicación. 
 
+%Si $HK$ es un subgrupo de $G$. Entonces dados $h,k \in %HK$ tendríamos que $HK \ni (h^{-1}k^{-1})^{-1} = kh$ y %por tanto $KH \subseteq HK$. Recíprocamente, si $h,k \in %HK$ entonces 
 \end{proof}
 
 Una forma de generalizar el teorema del producto es hacer infinitos productos con lo que se elimina la hipótesis de conmutación.
@@ -145,8 +148,8 @@ $\subseteq)$ Como $X \subseteq T$, claramente, $<X> \subseteq T$ ya que $<X>$ es
 $\supseteq)$ Como $<X>$ es un subgrupo de $G$ y $X \subseteq <X>$, necesariamente $T \subseteq <X>$. 
 \end{proof}
 
-\begin{proposition}
-Sea X un subconjunto no vacío de un grupo finito G. $<X> = \{x_1^{n_1}...x_r^{n_r}:x_i \in X,n_i \ge 0,r \ge 1\}$
+\begin{proposition}[Subgrupo generado por un conjunto finito]
+Sea X un subconjunto no vacío de un grupo finito G. Entonces: $$\langle X \rangle = \{x_1^{n_1}...x_r^{n_r}:x_i \in X,n_i \ge 0,r \ge 1\}$$
 \end{proposition}
 \begin{proof}
 Llamemos palabras directas al miembro de la derecha de la igualdad anterior y denotémoslo por $T$. 
@@ -285,12 +288,17 @@ Obsérvese también en este momento que los grupos cíclicos son abelianos.
 
 \begin{theorem}[Descripción del retículo de subgrupos de un grupo cíclico]
 1. Si G es grupo cíclico infinito entonces $G \cong \mathbb{Z}$ y $Sub(\mathbb{Z}) = \{n\mathbb{Z}:n \ge 0\}$ y la relación de inclusión viene dada por $m\mathbb{Z} \subseteq n\mathbb{Z} \iff n|m$. \\
-Supongamos que G es un grupo cíclico finito es decir es de la forma $C_n = <x:x^n = 1>$.\\
-2. Si d es divisor de n entonces $<x^{n/d}>$ es un subgrupo de $C_n$ cíclico de orden d. \\
+Supongamos que G es un grupo cíclico finito es decir es de la forma $C_n = \langle x:x^n = 1 \rangle$.\\
+2. Si $d|n$ entonces $\langle x^{n/d} \rangle$ es un subgrupo de $C_n$ cíclico de orden d. \\
 3. Si H es un subgrupo de $C_n$ no trivial y $s = min\{r \ge 1:x^r \in H\}$ entonces $s|n$ y $H = <x^s>$. \\
 4. (Identificación de subgrupos) Denotemos por $Div(n)$ a los divisores de n. La aplicación $$f:Div(n) \rightarrow Sub(C_n)$$ tal que $$d \mapsto <x^{n/d}>$$ es una biyección.  \\
 5. (Relación de inclusión) Sean $d_1,d_2 \in Div(n)$. $$<a^{n/d_1}> \; \le \; <a^{n/d_2}> \iff d_1|d_2$$ 
 \end{theorem}
 \begin{proof}
-
+\begin{enumerate}
+\item El isomorfismo es trivial. Para ver que los subgrupos de $\mathbb{Z}$ son precisamente los múltiplos de los números naturales, puede consultarse \cite{dorronsoro} página 58. La relación de orden es similar a la que se deducía en los retículos de ideales principales puestos en correspondencia con el retículos de enteros ordenados por divisibilidad. 
+\item Por la proposición sobre las propiedades del orden de un elemento, tenemos que $ord(x^{n/d}) = \frac{ord(x)}{mcd(n,n/d)} = \frac{n}{n/d} = d$. Sabíamos además que $d = ord(x^{n/d}) = |\langle x^{n/d} \rangle|$, de donde el grupo cíclico generado por $x^{n/d}$ tiene precisamente, $d$ elementos. 
+\item 
+\item 
+\end{enumerate}
 \end{proof}

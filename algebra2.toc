@@ -76,3 +76,9 @@
 \contentsline {subsection}{\numberline {6.1}G-conjuntos}{35}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7}Clasificaci\IeC {\'o}n de grupos abelianos finitos}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Ap\IeC {\'e}ndice}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.1}Clasificaci\IeC {\'o}n de los grupos de orden menor o igual que 15}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.2}Producto semidirecto de grupos}{38}

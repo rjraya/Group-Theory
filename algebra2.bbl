@@ -1,0 +1,381 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nty/global/}
+  \entry{artin}{book}{}
+    \name{author}{1}{}{%
+      {{hash=AM}{%
+         family={Artin},
+         familyi={A\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Prentice-Hall}%
+    }
+    \strng{namehash}{AM1}
+    \strng{fullhash}{AM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Algebra}
+    \field{year}{1991}
+  \endentry
+
+  \entry{aschbacher}{book}{}
+    \name{author}{1}{}{%
+      {{hash=AM}{%
+         family={Aschbacher},
+         familyi={A\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{AM2}
+    \strng{fullhash}{AM2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Finite Group Theory}
+    \field{year}{2000}
+  \endentry
+
+  \entry{carter}{book}{}
+    \name{author}{1}{}{%
+      {{hash=CN}{%
+         family={Carter},
+         familyi={C\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Mathematical Association of America}%
+    }
+    \strng{namehash}{CN1}
+    \strng{fullhash}{CN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Visual Group Theory}
+    \field{year}{2009}
+  \endentry
+
+  \entry{dieudonne}{book}{}
+    \name{author}{1}{}{%
+      {{hash=DJ}{%
+         family={Dieudonné},
+         familyi={D\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wadsworth, In.}%
+    }
+    \strng{namehash}{DJ1}
+    \strng{fullhash}{DJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{History of Algebraic Geometry}
+    \field{year}{1985}
+  \endentry
+
+  \entry{dixon}{book}{}
+    \name{author}{1}{}{%
+      {{hash=DJ}{%
+         family={Dixon},
+         familyi={D\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Blaisdell Publishing Company}%
+    }
+    \strng{namehash}{DJ2}
+    \strng{fullhash}{DJ2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Problems in Group Theory}
+    \field{year}{1967}
+  \endentry
+
+  \entry{dorronsoro}{book}{}
+    \name{author}{1}{}{%
+      {{hash=yEHJD}{%
+         prefix={y},
+         prefixi={y},
+         family={E.\bibnamedelima Hernández},
+         familyi={E\bibinitperiod\bibinitdelim H\bibinitperiod},
+         given={J.\bibnamedelima Dorronsoro},
+         giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley}%
+    }
+    \strng{namehash}{EHJDy1}
+    \strng{fullhash}{EHJDy1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{Números, grupos y anillos}
+    \field{year}{1996}
+  \endentry
+
+  \entry{dummit}{book}{}
+    \name{author}{1}{}{%
+      {{hash=yFD}{%
+         prefix={y},
+         prefixi={y},
+         family={Foote},
+         familyi={F\bibinitperiod},
+         given={Dummit},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {John Wiley}%
+      {Sons}%
+    }
+    \strng{namehash}{FDy1}
+    \strng{fullhash}{FDy1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Abstract algebra}
+    \field{year}{2004}
+  \endentry
+
+  \entry{fraileigh}{book}{}
+    \name{author}{1}{}{%
+      {{hash=FJB}{%
+         family={Fraileigh},
+         familyi={F\bibinitperiod},
+         given={J.\bibnamedelima B.},
+         giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson}%
+    }
+    \strng{namehash}{FJB1}
+    \strng{fullhash}{FJB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{A first course in Abstract Algebra}
+    \field{year}{2013}
+  \endentry
+
+  \entry{grove}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GL}{%
+         family={Grove},
+         familyi={G\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Academic Press}%
+    }
+    \strng{namehash}{GL1}
+    \strng{fullhash}{GL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Algebra}
+    \field{year}{1983}
+  \endentry
+
+  \entry{harpe}{book}{}
+    \name{author}{1}{}{%
+      {{hash=dlHP}{%
+         prefix={de\bibnamedelima la},
+         prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod},
+         family={Harpe},
+         familyi={H\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The University of Chicago Press}%
+    }
+    \strng{namehash}{HPdl1}
+    \strng{fullhash}{HPdl1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Topics in Geometric Group Theory}
+    \field{year}{2000}
+  \endentry
+
+  \entry{herstein}{book}{}
+    \name{author}{1}{}{%
+      {{hash=HI}{%
+         family={Herstein},
+         familyi={H\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Gin}%
+      {Company}%
+    }
+    \strng{namehash}{HI1}
+    \strng{fullhash}{HI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Topics in Algebra}
+    \field{year}{1964}
+  \endentry
+
+  \entry{jacobson}{book}{}
+    \name{author}{1}{}{%
+      {{hash=JN}{%
+         family={Jacobson},
+         familyi={J\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {W. H. Freeman}%
+      {Company}%
+    }
+    \strng{namehash}{JN1}
+    \strng{fullhash}{JN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Basic Algebra I}
+    \field{year}{1985}
+  \endentry
+
+  \entry{ledermann}{book}{}
+    \name{author}{1}{}{%
+      {{hash=LW}{%
+         family={Ledermann},
+         familyi={L\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Logman Group}%
+    }
+    \strng{namehash}{LW1}
+    \strng{fullhash}{LW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Introduction to Group Theory}
+    \field{year}{1973}
+  \endentry
+
+  \entry{pinter}{book}{}
+    \name{author}{1}{}{%
+      {{hash=PC}{%
+         family={Pinter},
+         familyi={P\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {McGraw-hill}%
+    }
+    \strng{namehash}{PC1}
+    \strng{fullhash}{PC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{A Book of Abstract Algebra}
+    \field{year}{1982}
+  \endentry
+
+  \entry{rotman}{book}{}
+    \name{author}{1}{}{%
+      {{hash=RJ}{%
+         family={Rotman},
+         familyi={R\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{RJ1}
+    \strng{fullhash}{RJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Advanced Modern Algebra}
+    \field{year}{2010}
+  \endentry
+
+  \entry{zassenhaus}{book}{}
+    \name{author}{1}{}{%
+      {{hash=ZH}{%
+         family={Zassenhaus},
+         familyi={Z\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Chelsea Publishing Company}%
+    }
+    \strng{namehash}{ZH1}
+    \strng{fullhash}{ZH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{title}{The theory of groups}
+    \field{year}{1949}
+  \endentry
+\endsortlist
+\endinput

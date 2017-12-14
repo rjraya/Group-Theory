@@ -11,7 +11,7 @@ Una acción por la izquierda del grupo G sobre el conjunto X consiste en una apl
 A $X$ se llamará G-conjunto y $G$ se llamará dominio de operadores. Al valor $g_x$ se le llama "g actuando sobre x". 
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Representación asociada a una acción]
 Dar una acción de $G$ sobre $X$ equivale a dar un homomorfismo $G \rightarrow S(X)$.
 \end{proposition}
 \begin{proof}
@@ -46,11 +46,11 @@ Consideremos la acción por translación sobre $G$, $\phi$. Como $\phi$ es un mo
 \end{proof}
 
 \begin{definition}[Órbitas y acción transitiva]
-Dados $x,y \in X$ diremos que $x \sim y \iff \exists g \in G$ tal que $y = g_x$. Se tiene una relación de equivalencia cuya clase de equivalencia es $O(x) = \{y \in G:y \sim x\} = \{g_x:x \in G\}$.
+Dados $x,y \in X$ diremos que $x \sim y \iff \exists g \in G$ tal que $y = g_x$. 
 
-En otras palabras la órbita de un elemento es el resultado de aplicar todos los elementos de $G$ a x. 
+Se tiene una relación de equivalencia cuya clase de equivalencia es: $$O(x) = \{y \in G:y \sim x\} = \{g_x:x \in G\}$$ En otras palabras la órbita de un elemento es el resultado de aplicar todos los elementos de $G$ a x. 
 
-La acción es transitiva si $O(x) = O(y) \; \forall x,y \in X$, esto es, si $\forall x,y \in X \exists g \in G$ tal que $y = g_x$.
+La acción es transitiva si $\forall x,y \in X.O(x) = O(y)$, esto es, si $\forall x,y \in X. \exists g \in G$ tal que $y = g_x$.
 \end{definition}
 
 \begin{definition}[Estabilizador]

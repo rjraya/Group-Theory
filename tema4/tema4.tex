@@ -1,14 +1,20 @@
 \subsection{Subgrupos normales}
 
 \begin{definition}[Subgrupo normal]
-Sea H un subgrupo de un grupo G. N es normal en G si $aN = Na \, \forall a \in G$ en cuyo caso escribiremos $H \unlhd G$.
+Sea N un subgrupo de un grupo G. 
+
+N es normal en G $\iff \forall a \in G. aN = Na$ 
+
+en cuyo caso escribiremos $N \unlhd G$.
 \end{definition}
 
 \begin{example}
-1. Todos los subgrupos de un grupo abeliano son normales.\\
-2. Los subgrupos impropios de un grupo son normales.\\
-3. $A_3 \trianglelefteq S_3$ pero $<(12)> \ntrianglelefteq S_3$.\\
-4. El subgrupo de las rotaciones de $D_3$ es normal en $D_3$.
+\begin{enumerate}
+\item Todos los subgrupos de un grupo abeliano son normales.
+\item Los subgrupos impropios de un grupo son normales.
+\item $A_3 \trianglelefteq S_3$ pero $<(12)> \ntrianglelefteq S_3$.
+\item El subgrupo de las rotaciones de $D_3$ es normal en $D_3$.
+\end{enumerate}
 \end{example}
 
 \begin{lemma}[Conjugado de un subgrupo por un elemento]
@@ -19,7 +25,11 @@ Utilizaremos el criterio \ref{proposition:criterio-subgrupo}. En efecto, dados d
 \end{proof}
 
 \begin{theorem}[Condición de normalidad]\label{theorem:criterio-normalidad}
-Sea N un subgrupo de un grupo G. $N \unlhd G \iff aNa^{-1} = N  \, \forall a \in G \iff aNa^{-1} \le N \, \forall a \in G$ esto es, un subgrupo es normal si contiene a todos sus conjugados.
+Sea N un subgrupo de un grupo G. 
+
+$N \unlhd G \iff aNa^{-1} = N  \, \forall a \in G \iff aNa^{-1} \le N \, \forall a \in G$ 
+
+esto es, un subgrupo es normal si contiene a todos sus conjugados.
 \end{theorem}
 \begin{proof}
 La clave de esta demostración es darse cuenta que la operación "multiplicar por un elemento de un grupo" mantiene cardinalidades ya que la aplicación $f:N \rightarrow aN$ tal que $f(n) = an$ es biyectiva.
@@ -189,7 +199,7 @@ Por el teorema \ref{theorem:teorema-producto}, se tiene que $HK \in Sub(G)$ y cl
 \subsubsection{Producto directo de grupos}
 
 \begin{definition}[Producto directo de grupos]
-Dados $G_1,...,G_n$ grupos su producto directo es el grupo $G_1 \times ... \times G_n = \{(x_1,...,x_n):x_i \in G_i,1 \le i \le n\}$ con la operación producto componente a componente. Lo denotaremos por $\prod_{k=1}^{n} G_k$.
+Dados $G_1,...,G_n$ grupos su producto directo es el conjunto: $$G_1 \times ... \times G_n = \{(x_1,...,x_n):x_i \in G_i,1 \le i \le n\}$$ junto con la operación producto componente a componente: $$(g_1,\ldots,g_n)(g_1',\ldots,g_n') = (g_1g_1',\ldots,g_ng_n')$$ Lo denotaremos por $\prod_{k=1}^{n} G_k$.
 \end{definition}
 
 \begin{definition}[Proyecciones e inyecciones canónicas]
@@ -256,9 +266,11 @@ Supongamos ahora que $mcd(|G_i|,|G_j|) = 1$ $\forall i \neq j$ entonces:\\
 
 \subsubsection{Producto directo interno}
 
+\begin{definition}[Producto directo interno]
 Sea $G$ un grupo, $H,K \le G$ y $\lambda:H \times K \rightarrow G$ tal que $\lambda((h,k)) = hk$.
 
-En cualquiera de las situaciones del siguiente teorema diremos que $G$ es producto directo interno de $H$ y $K$.
+$G$ es producto directo interno de $H$ y $K$ si $\lambda$ es un isomorfismo. Esto permite reconocer $G$ como producto directo (externo) de dos de sus subgrupos.
+\end{definition}
 
 \begin{theorem}[Condiciones de producto directo interno]
 Son equivalentes:\\
@@ -267,9 +279,6 @@ Son equivalentes:\\
 3. $hk = kh$ $\forall k \in K$ y $h \in H$, $G = H \lor K$ y $H \cap K = \{1\}$.\\
 4. $hk = kh$ $\forall k \in K$ y $h \in H$ y además para cada $g \in G$ $\exists  ! h \in H, k \in K$ tales que $g = hk$
 \end{theorem}
-\begin{proof}
-
-\end{proof}
 
 Generalizamos para n subgrupos.
 
@@ -285,6 +294,6 @@ Son equivalentes:
 3. $h_i h_j = h_j h_i$ $\forall h_i \in H_i$ $\forall h_j \in H_j$ $\forall i \neq j$, $G = H_1 \lor ... \lor H_n$,$(H_1...H_{i-1})\cap H_i$ $\forall i=2,...,n$.\\
 4. $h_ih_j = h_jh_i$ $\forall h_i \in H_i$ $\forall h_j \in H_j$ $\forall i \neq j$, tal que para cada $g \in G$ $\exists ! h_1 \in H_1,...,h_n \in H_n$ tal que $g = h_1...h_n$.
 \end{theorem}
-\begin{proof}
 
-\end{proof}
+
+
